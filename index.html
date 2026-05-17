@@ -6,1009 +6,790 @@
 <title>Embark RX — Sales Training Guide</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
-
-:root {
-  --green:    #1D4A3E;
-  --green-dk: #142f28;
-  --green-lt: #EAF0EE;
-  --gold:     #B8975A;
-  --gold-lt:  #F5EFE6;
-  --off:      #F5F5F3;
-  --bdr:      #D8E4E0;
-  --white:    #FFFFFF;
-  --dark:     #1A1A1A;
-  --mid:      #4A4A4A;
-  --muted:    #7A7A7A;
-  --red:      #B83232;
-  --red-lt:   #FBF0F0;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--off);
-  color: var(--dark);
-  min-height: 100vh;
-}
-
-/* ── HEADER ── */
-.header {
-  background: var(--green);
-  padding: 0 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
-}
-
-.logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--gold);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Libre Baskerville', serif;
-  font-weight: 700;
-  color: var(--green);
-  font-size: 14px;
-  letter-spacing: -0.5px;
-  flex-shrink: 0;
-}
-
-.logo-text {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--white);
-  letter-spacing: -0.3px;
-}
-
-.logo-text span {
-  color: var(--gold);
-  font-style: italic;
-}
-
-.header-badge {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  opacity: 0.8;
-}
-
-/* ── NAV ── */
-.nav-wrap {
-  background: var(--white);
-  border-bottom: 1px solid var(--bdr);
-  position: sticky;
-  top: 60px;
-  z-index: 99;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.nav-wrap::-webkit-scrollbar { display: none; }
-
-.nav {
-  display: flex;
-  gap: 0;
-  padding: 0 16px;
-  min-width: max-content;
-}
-
-.session-label {
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 14px 16px 4px;
-  border-bottom: 2px solid transparent;
-  white-space: nowrap;
-  pointer-events: none;
-  border-right: 1px solid var(--bdr);
-}
-
-.tab {
-  padding: 12px 16px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--muted);
-  cursor: pointer;
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  transition: all 0.18s;
-  position: relative;
-}
-.tab:hover { color: var(--green); }
-.tab.active {
-  color: var(--green);
-  border-bottom-color: var(--gold);
-  font-weight: 600;
-}
-.tab-divider {
-  width: 1px;
-  background: var(--bdr);
-  margin: 8px 0;
-}
-
-/* ── MAIN ── */
-.main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 32px 24px 64px;
-}
-
-.section { display: none; }
-.section.active { display: block; animation: fadeUp 0.25s ease; }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ── CHAPTER OPENER ── */
-.chapter-opener {
-  background: var(--green);
-  border-radius: 10px;
-  padding: 28px 28px 24px;
-  margin-bottom: 28px;
-  position: relative;
-  overflow: hidden;
-}
-.chapter-opener::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 5px;
-  background: var(--gold);
-}
-.chapter-num {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 6px;
-  padding-left: 14px;
-}
-.chapter-title {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 1.8rem;
-  color: var(--white);
-  padding-left: 14px;
-  line-height: 1.2;
-  margin-bottom: 6px;
-}
-.chapter-sub {
-  font-size: 0.88rem;
-  color: #A8C4BC;
-  padding-left: 14px;
-}
-
-/* ── SESSION BANNER ── */
-.session-banner {
-  background: linear-gradient(135deg, var(--green) 0%, var(--green-dk) 100%);
-  border-radius: 10px;
-  padding: 32px 28px;
-  margin-bottom: 28px;
-  border-left: 5px solid var(--gold);
-}
-.session-banner .s-num {
-  font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
-}
-.session-banner h1 {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 2rem; color: var(--white); margin-bottom: 4px;
-}
-.session-banner .s-hrs {
-  font-size: 0.9rem; color: #A8C4BC; margin-bottom: 20px;
-}
-.session-banner .s-divider {
-  height: 1px; background: rgba(184,151,90,0.3); margin-bottom: 16px;
-}
-.session-banner .s-topics-label {
-  font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
-}
-.session-banner .s-topics {
-  display: flex; flex-direction: column; gap: 8px;
-}
-.session-banner .s-topic {
-  font-size: 0.9rem; color: #C8D8D4;
-  display: flex; align-items: baseline; gap: 10px;
-}
-.session-banner .s-topic::before {
-  content: '–'; color: var(--gold); flex-shrink: 0;
-}
-
-/* ── SECTION RULE ── */
-.section-rule {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 24px 0 14px;
-}
-.section-rule-text {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: var(--green);
-  white-space: nowrap;
-}
-.section-rule-line {
-  flex: 1;
-  height: 1px;
-  background: var(--bdr);
-}
-.section-rule.gold .section-rule-text { color: var(--gold); }
-.section-rule.muted .section-rule-text { color: var(--muted); }
-
-/* ── GOLD RULE ── */
-.gold-rule {
-  height: 2px;
-  background: var(--gold);
-  border-radius: 2px;
-  margin: 28px 0;
-}
-
-/* ── PLAIN CARD ── */
-.card {
-  background: var(--white);
-  border: 1px solid var(--bdr);
-  border-radius: 8px;
-  padding: 18px 20px;
-  margin-bottom: 10px;
-}
-.card.green-lt { background: var(--green-lt); }
-.card.gold-lt { background: var(--gold-lt); }
-
-/* ── WARN CARD ── */
-.warn-card {
-  background: var(--red-lt);
-  border: 1px solid var(--red);
-  border-left: 4px solid var(--red);
-  border-radius: 8px;
-  padding: 16px 18px;
-  margin-bottom: 16px;
-}
-.warn-label {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 8px;
-}
-.warn-card p { color: var(--red); font-size: 0.9rem; line-height: 1.65; }
-
-/* ── KV TABLE ── */
-.kv-table { border-radius: 8px; overflow: hidden; border: 1px solid var(--bdr); margin-bottom: 16px; }
-.kv-row {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  border-bottom: 1px solid var(--bdr);
-}
-.kv-row:last-child { border-bottom: none; }
-.kv-row:nth-child(odd) { background: var(--off); }
-.kv-row:nth-child(even) { background: var(--white); }
-.kv-key {
-  padding: 12px 14px;
-  font-weight: 600;
-  font-size: 0.88rem;
-  color: var(--green);
-  border-right: 1px solid var(--bdr);
-}
-.kv-val {
-  padding: 12px 14px;
-  font-size: 0.88rem;
-  color: var(--mid);
-  line-height: 1.6;
-}
-
-/* ── STAT BAR ── */
-.stat-bar {
-  background: var(--green);
-  border-radius: 8px;
-  display: grid;
-  margin-bottom: 16px;
-  overflow: hidden;
-}
-.stat-bar.cols-1 { grid-template-columns: 1fr; }
-.stat-bar.cols-2 { grid-template-columns: 1fr 1fr; }
-.stat-bar.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
-.stat-item {
-  padding: 20px 16px;
-  text-align: center;
-  border-right: 1px solid rgba(255,255,255,0.08);
-}
-.stat-item:last-child { border-right: none; }
-.stat-num {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 2rem;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.stat-lbl {
-  font-size: 0.75rem;
-  color: #A8C4BC;
-  line-height: 1.4;
-}
-
-/* ── STEP TABLE ── */
-.step-table { border-radius: 8px; overflow: hidden; border: 1px solid var(--bdr); margin-bottom: 16px; }
-.step-row {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  border-bottom: 1px solid var(--bdr);
-}
-.step-row:last-child { border-bottom: none; }
-.step-row:nth-child(even) .step-body { background: var(--green-lt); }
-.step-num {
-  background: var(--green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Libre Baskerville', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--white);
-}
-.step-body {
-  padding: 14px 16px;
-  background: var(--white);
-}
-.step-title {
-  font-weight: 600;
-  font-size: 0.92rem;
-  color: var(--green);
-  margin-bottom: 3px;
-}
-.step-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.5; }
-
-/* ── PRODUCT GRID ── */
-.product-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border: 1px solid var(--bdr);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 16px;
-}
-.product-cell {
-  padding: 14px 16px;
-  border-right: 1px solid var(--bdr);
-  border-bottom: 1px solid var(--bdr);
-  background: var(--off);
-}
-.product-cell:nth-child(2n) { border-right: none; }
-.product-cell:nth-last-child(-n+2) { border-bottom: none; }
-.product-cell:nth-child(4n+1),
-.product-cell:nth-child(4n+2) { background: var(--white); }
-.product-name {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--green);
-  margin-bottom: 3px;
-}
-.product-form {
-  font-size: 0.75rem;
-  color: var(--gold);
-  font-style: italic;
-  margin-bottom: 6px;
-  line-height: 1.4;
-}
-.product-body { font-size: 0.83rem; color: var(--mid); line-height: 1.55; }
-
-/* ── COMPETITOR TABLE ── */
-.comp-table { border-radius: 8px; overflow: hidden; border: 1px solid var(--bdr); margin-bottom: 16px; }
-.comp-header {
-  display: grid;
-  grid-template-columns: 140px 1fr 1fr;
-  background: var(--green);
-}
-.comp-header span {
-  padding: 10px 14px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--gold);
-  border-right: 1px solid rgba(255,255,255,0.08);
-}
-.comp-header span:last-child { border-right: none; }
-.comp-row {
-  display: grid;
-  grid-template-columns: 140px 1fr 1fr;
-  border-bottom: 1px solid var(--bdr);
-}
-.comp-row:last-child { border-bottom: none; }
-.comp-row:nth-child(odd) .comp-cell { background: var(--off); }
-.comp-row:nth-child(even) .comp-cell { background: var(--white); }
-.comp-cell {
-  padding: 11px 14px;
-  font-size: 0.84rem;
-  color: var(--mid);
-  border-right: 1px solid var(--bdr);
-  line-height: 1.5;
-}
-.comp-cell:first-child { font-weight: 600; color: var(--dark); }
-.comp-cell:last-child { border-right: none; color: var(--green); }
-.comp-cell.warn { color: var(--red); }
-
-/* ── TIMELINE ── */
-.timeline { border-radius: 8px; overflow: hidden; border: 1px solid var(--bdr); margin-bottom: 16px; }
-.timeline-row {
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  border-bottom: 1px solid var(--bdr);
-}
-.timeline-row:last-child { border-bottom: none; }
-.timeline-yr {
-  background: var(--green);
-  padding: 14px 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.82rem;
-  color: var(--white);
-  text-align: center;
-  line-height: 1.4;
-}
-.timeline-body {
-  padding: 14px 16px;
-  font-size: 0.88rem;
-  color: var(--mid);
-  line-height: 1.6;
-}
-.timeline-row:nth-child(even) .timeline-body { background: var(--green-lt); }
-
-/* ── BULLETS ── */
-.bullets { display: flex; flex-direction: column; gap: 6px; margin: 8px 0; }
-.bullet { display: flex; gap: 10px; align-items: baseline; font-size: 0.9rem; color: var(--mid); line-height: 1.55; }
-.bullet::before { content: '–'; color: var(--gold); flex-shrink: 0; font-weight: 600; }
-
-/* ── INLINE HIGHLIGHTS ── */
-.highlight-box {
-  background: var(--green-lt);
-  border: 1px solid var(--bdr);
-  border-left: 4px solid var(--gold);
-  border-radius: 8px;
-  padding: 14px 18px;
-  margin: 12px 0;
-  font-size: 0.88rem;
-  color: var(--mid);
-  line-height: 1.65;
-}
-.highlight-box strong { color: var(--green); }
-
-/* ── SECTION HEADING ── */
-.section-h2 {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 1.3rem;
-  color: var(--green);
-  margin-bottom: 14px;
-  margin-top: 8px;
-}
-
-/* ── BODY STYLES ── */
-p { font-size: 0.92rem; color: var(--mid); line-height: 1.65; margin-bottom: 10px; }
-b { color: var(--dark); }
-.red { color: var(--red); }
-.green-text { color: var(--green); font-weight: 600; }
-.muted { color: var(--muted); font-style: italic; }
-.label-tag {
-  font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
-  display: block;
-}
-
-/* ── FOOTER ── */
-.footer {
-  text-align: center;
-  padding: 32px;
-  font-size: 0.75rem;
-  color: var(--muted);
-  border-top: 1px solid var(--bdr);
-  margin-top: 48px;
-}
-.footer strong { color: var(--green); }
-
-/* ── RESPONSIVE ── */
-@media(max-width: 700px) {
-  .product-grid { grid-template-columns: 1fr; }
-  .product-cell:nth-child(n) { border-right: none; border-bottom: 1px solid var(--bdr); }
-  .product-cell:last-child { border-bottom: none; }
-  .kv-row { grid-template-columns: 1fr; }
-  .kv-key { border-right: none; border-bottom: 1px solid var(--bdr); }
-  .comp-header, .comp-row { grid-template-columns: 1fr; }
-  .stat-bar.cols-3 { grid-template-columns: 1fr; }
-}
+:root{--green:#1D4A3E;--green-dk:#142f28;--green-lt:#EAF0EE;--gold:#B8975A;--gold-lt:#F5EFE6;--off:#F5F5F3;--bdr:#D8E4E0;--white:#FFFFFF;--dark:#1A1A1A;--mid:#4A4A4A;--muted:#7A7A7A;--red:#B83232;--red-lt:#FBF0F0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--dark);min-height:100vh}
+.header{background:var(--green);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.logo-wrap{display:flex;align-items:center;gap:14px}
+.logo-icon{width:36px;height:36px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-weight:700;color:var(--green);font-size:14px;flex-shrink:0}
+.logo-text{font-size:1.15rem;font-weight:600;color:var(--white)}
+.logo-text span{color:var(--gold);font-style:italic}
+.header-badge{font-size:.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);opacity:.8}
+.nav-wrap{background:var(--white);border-bottom:1px solid var(--bdr);position:sticky;top:60px;z-index:99;overflow-x:auto;scrollbar-width:none}
+.nav-wrap::-webkit-scrollbar{display:none}
+.nav{display:flex;padding:0 16px;min-width:max-content}
+.session-label{font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:14px 16px 4px;border-bottom:2px solid transparent;white-space:nowrap;pointer-events:none;border-right:1px solid var(--bdr)}
+.tab{padding:12px 16px;font-size:.8rem;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:all .18s}
+.tab:hover{color:var(--green)}
+.tab.active{color:var(--green);border-bottom-color:var(--gold);font-weight:600}
+.tab-divider{width:1px;background:var(--bdr);margin:8px 0}
+.main{max-width:1100px;margin:0 auto;padding:32px 24px 64px}
+.section{display:none}
+.section.active{display:block;animation:fadeUp .25s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.chapter-opener{background:var(--green);border-radius:10px;padding:28px 28px 24px;margin-bottom:28px;position:relative;overflow:hidden}
+.chapter-opener::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--gold)}
+.chapter-num{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;padding-left:14px}
+.chapter-title{font-family:'Libre Baskerville',serif;font-size:1.8rem;color:var(--white);padding-left:14px;line-height:1.2;margin-bottom:6px}
+.chapter-sub{font-size:.88rem;color:#A8C4BC;padding-left:14px}
+.session-banner{background:linear-gradient(135deg,var(--green) 0%,var(--green-dk) 100%);border-radius:10px;padding:32px 28px;margin-bottom:28px;border-left:5px solid var(--gold)}
+.session-banner .s-num{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.session-banner h1{font-family:'Libre Baskerville',serif;font-size:2rem;color:var(--white);margin-bottom:4px}
+.session-banner .s-hrs{font-size:.9rem;color:#A8C4BC;margin-bottom:20px}
+.session-banner .s-divider{height:1px;background:rgba(184,151,90,.3);margin-bottom:16px}
+.session-banner .s-topics-label{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.session-banner .s-topics{display:flex;flex-direction:column;gap:8px}
+.session-banner .s-topic{font-size:.9rem;color:#C8D8D4;display:flex;align-items:baseline;gap:10px}
+.session-banner .s-topic::before{content:'–';color:var(--gold);flex-shrink:0}
+.section-rule{display:flex;align-items:center;gap:12px;margin:24px 0 14px}
+.section-rule-text{font-size:.65rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--green);white-space:nowrap}
+.section-rule-line{flex:1;height:1px;background:var(--bdr)}
+.section-rule.gold .section-rule-text{color:var(--gold)}
+.section-rule.muted .section-rule-text{color:var(--muted)}
+.gold-rule{height:2px;background:var(--gold);border-radius:2px;margin:28px 0}
+.card{background:var(--white);border:1px solid var(--bdr);border-radius:8px;padding:18px 20px;margin-bottom:10px}
+.warn-card{background:var(--red-lt);border:1px solid var(--red);border-left:4px solid var(--red);border-radius:8px;padding:16px 18px;margin-bottom:16px}
+.warn-label{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.warn-card p{color:var(--red);font-size:.9rem;line-height:1.65}
+.kv-table{border-radius:8px;overflow:hidden;border:1px solid var(--bdr);margin-bottom:16px}
+.kv-row{display:grid;grid-template-columns:210px 1fr;border-bottom:1px solid var(--bdr)}
+.kv-row:last-child{border-bottom:none}
+.kv-row:nth-child(odd){background:var(--off)}
+.kv-row:nth-child(even){background:var(--white)}
+.kv-key{padding:12px 14px;font-weight:600;font-size:.88rem;color:var(--green);border-right:1px solid var(--bdr)}
+.kv-val{padding:12px 14px;font-size:.88rem;color:var(--mid);line-height:1.6}
+.stat-bar{background:var(--green);border-radius:8px;display:grid;margin-bottom:16px;overflow:hidden}
+.stat-bar.cols-1{grid-template-columns:1fr}
+.stat-bar.cols-2{grid-template-columns:1fr 1fr}
+.stat-bar.cols-3{grid-template-columns:1fr 1fr 1fr}
+.stat-item{padding:20px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Libre Baskerville',serif;font-size:2rem;color:var(--gold);line-height:1;margin-bottom:6px}
+.stat-lbl{font-size:.75rem;color:#A8C4BC;line-height:1.4}
+.step-table{border-radius:8px;overflow:hidden;border:1px solid var(--bdr);margin-bottom:16px}
+.step-row{display:grid;grid-template-columns:56px 1fr;border-bottom:1px solid var(--bdr)}
+.step-row:last-child{border-bottom:none}
+.step-row:nth-child(even) .step-body{background:var(--green-lt)}
+.step-num{background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:700;color:var(--white)}
+.step-body{padding:14px 16px;background:var(--white)}
+.step-title{font-weight:600;font-size:.92rem;color:var(--green);margin-bottom:3px}
+.step-desc{font-size:.85rem;color:var(--mid);line-height:1.5}
+.product-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--bdr);border-radius:8px;overflow:hidden;margin-bottom:16px}
+.product-cell{padding:14px 16px;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);background:var(--off)}
+.product-cell:nth-child(2n){border-right:none}
+.product-cell:nth-last-child(-n+2){border-bottom:none}
+.product-cell.span-2{grid-column:span 2;border-right:none;border-bottom:none}
+.product-cell:nth-child(4n+1),.product-cell:nth-child(4n+2){background:var(--white)}
+.product-name{font-weight:600;font-size:.95rem;color:var(--green);margin-bottom:3px}
+.product-form{font-size:.75rem;color:var(--gold);font-style:italic;margin-bottom:6px;line-height:1.4}
+.product-body{font-size:.83rem;color:var(--mid);line-height:1.55}
+.peptide-card{background:var(--white);border:1px solid var(--bdr);border-radius:8px;margin-bottom:12px;overflow:hidden}
+.peptide-header{background:var(--green);padding:12px 16px;border-left:4px solid var(--gold)}
+.peptide-header .product-name{color:var(--white);margin-bottom:2px}
+.peptide-header .product-form{margin-bottom:0}
+.peptide-body{padding:14px 16px}
+.peptide-section{margin-bottom:10px}
+.peptide-section:last-child{margin-bottom:0}
+.peptide-section-label{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.peptide-section p{font-size:.85rem;color:var(--mid);line-height:1.6;margin-bottom:0}
+.comp-table{border-radius:8px;overflow:hidden;border:1px solid var(--bdr);margin-bottom:16px}
+.comp-header{display:grid;grid-template-columns:160px 1fr 1fr;background:var(--green)}
+.comp-header span{padding:10px 14px;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);border-right:1px solid rgba(255,255,255,.08)}
+.comp-header span:last-child{border-right:none}
+.comp-row{display:grid;grid-template-columns:160px 1fr 1fr;border-bottom:1px solid var(--bdr)}
+.comp-row:last-child{border-bottom:none}
+.comp-row:nth-child(odd) .comp-cell{background:var(--off)}
+.comp-row:nth-child(even) .comp-cell{background:var(--white)}
+.comp-cell{padding:11px 14px;font-size:.84rem;color:var(--mid);border-right:1px solid var(--bdr);line-height:1.5}
+.comp-cell:first-child{font-weight:600;color:var(--dark)}
+.comp-cell:last-child{border-right:none;color:var(--green)}
+.comp-cell.warn{color:var(--red)}
+.timeline{border-radius:8px;overflow:hidden;border:1px solid var(--bdr);margin-bottom:16px}
+.timeline-row{display:grid;grid-template-columns:130px 1fr;border-bottom:1px solid var(--bdr)}
+.timeline-row:last-child{border-bottom:none}
+.timeline-yr{background:var(--green);padding:14px 12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;color:var(--white);text-align:center;line-height:1.4}
+.timeline-body{padding:14px 16px;font-size:.88rem;color:var(--mid);line-height:1.6}
+.timeline-row:nth-child(even) .timeline-body{background:var(--green-lt)}
+.bullets{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.bullet{display:flex;gap:10px;align-items:baseline;font-size:.9rem;color:var(--mid);line-height:1.55}
+.bullet::before{content:'–';color:var(--gold);flex-shrink:0;font-weight:600}
+.highlight-box{background:var(--green-lt);border:1px solid var(--bdr);border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px;margin:12px 0;font-size:.88rem;color:var(--mid);line-height:1.65}
+.highlight-box strong{color:var(--green)}
+p{font-size:.92rem;color:var(--mid);line-height:1.65;margin-bottom:10px}
+b{color:var(--dark)}
+.footer{text-align:center;padding:32px;font-size:.75rem;color:var(--muted);border-top:1px solid var(--bdr);margin-top:48px}
+.footer strong{color:var(--green)}
+@media(max-width:700px){
+.product-grid{grid-template-columns:1fr}
+.product-cell:nth-child(n){border-right:none;border-bottom:1px solid var(--bdr)}
+.product-cell:last-child,.product-cell.span-2{border-bottom:none;grid-column:span 1}
+.kv-row{grid-template-columns:1fr}
+.kv-key{border-right:none;border-bottom:1px solid var(--bdr)}
+.comp-header,.comp-row{grid-template-columns:1fr}
+.stat-bar.cols-3{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="header">
   <div class="logo-wrap">
     <div class="logo-icon">Rx</div>
     <div class="logo-text">embark<span>Rx</span></div>
   </div>
   <div class="header-badge">Sales Training Guide</div>
-  <div class="header-badge" style="opacity:0.5">Internal Use Only</div>
+  <div class="header-badge" style="opacity:.5">Internal Use Only</div>
 </header>
 
-<!-- NAV -->
-<div class="nav-wrap">
-  <div class="nav">
-    <div class="session-label">Session 1</div>
-    <div class="tab active" onclick="show('s1-overview',this)">Overview</div>
-    <div class="tab" onclick="show('s1-usp',this)">USP</div>
-    <div class="tab" onclick="show('s1-markets',this)">Markets</div>
-    <div class="tab" onclick="show('s1-accounts',this)">Accounts</div>
-    <div class="tab" onclick="show('s1-onboarding',this)">Onboarding</div>
-    <div class="tab" onclick="show('s1-competitors',this)">Competitors</div>
-    <div class="tab" onclick="show('s1-commission',this)">Commission</div>
-    <div class="tab-divider"></div>
-    <div class="session-label">Session 2</div>
-    <div class="tab" onclick="show('s2-workflow',this)">Workflow</div>
-    <div class="tab" onclick="show('s2-glp',this)">GLP-1s</div>
-    <div class="tab" onclick="show('s2-trt',this)">TRT / HRT</div>
-    <div class="tab" onclick="show('s2-sexual',this)">Sexual Health</div>
-    <div class="tab" onclick="show('s2-peptides',this)">Peptides</div>
-  </div>
-</div>
+<div class="nav-wrap"><div class="nav">
+  <div class="session-label">Session 1 · 2 hrs</div>
+  <div class="tab active" onclick="show('s1-overview',this)">Overview</div>
+  <div class="tab" onclick="show('s1-usp',this)">USP</div>
+  <div class="tab" onclick="show('s1-accounts',this)">Accounts &amp; Markets</div>
+  <div class="tab" onclick="show('s1-onboarding',this)">Onboarding &amp; Billing</div>
+  <div class="tab" onclick="show('s1-competitors',this)">Competitors</div>
+  <div class="tab" onclick="show('s1-commission',this)">Commission &amp; Territory</div>
+  <div class="tab-divider"></div>
+  <div class="session-label">Lunch · 1 hr</div>
+  <div class="tab" onclick="show('lunch',this)">Q&amp;A</div>
+  <div class="tab-divider"></div>
+  <div class="session-label">Session 2 · 2 hrs</div>
+  <div class="tab" onclick="show('s2-workflow',this)">Workflow</div>
+  <div class="tab" onclick="show('s2-glp',this)">GLP-1s</div>
+  <div class="tab" onclick="show('s2-trt',this)">TRT / HRT</div>
+  <div class="tab" onclick="show('s2-sexual',this)">Sexual Health</div>
+  <div class="tab" onclick="show('s2-vitamins',this)">Vitamins</div>
+  <div class="tab" onclick="show('s2-peptides',this)">Peptides</div>
+</div></div>
 
 <main class="main">
 
-<!-- ═══════════════════════════ SESSION 1 ═══════════════════════════ -->
-
-<!-- S1: OVERVIEW -->
+<!-- S1 OVERVIEW -->
 <div id="s1-overview" class="section active">
   <div class="session-banner">
     <div class="s-num">Session 1 · 2 Hours</div>
-    <h1>General Overview</h1>
+    <h1>General Overview of Compounding Business</h1>
     <div class="s-hrs">Brett · Jeremy · Scriven — Introduction and Backgrounds</div>
     <div class="s-divider"></div>
     <div class="s-topics-label">Topics Covered This Session</div>
     <div class="s-topics">
-      <div class="s-topic">Why we formed Embark RX — the problem we're solving</div>
-      <div class="s-topic">Market outlook and opportunity</div>
+      <div class="s-topic">Why we formed Embark RX</div>
+      <div class="s-topic">Market outlook</div>
       <div class="s-topic">Unique Selling Proposition</div>
-      <div class="s-topic">Types of accounts, markets, and qualification</div>
-      <div class="s-topic">Account onboarding and billing terms</div>
-      <div class="s-topic">Competitive landscape</div>
+      <div class="s-topic">Types of accounts and markets</div>
+      <div class="s-topic">Account qualification, classification, and onboarding</div>
+      <div class="s-topic">Billing terms and conditions</div>
+      <div class="s-topic">Major competitors</div>
       <div class="s-topic">Commission structure and territory policy</div>
     </div>
   </div>
 
-  <div class="section-rule"><div class="section-rule-text">Why We Started Embark RX</div><div class="section-rule-line"></div></div>
-
-  <div class="card" style="border-left: 4px solid var(--red);">
-    <span class="label-tag" style="color:var(--red)">The Problem in the Market</span>
-    <div class="bullets">
-      <div class="bullet"><span><b>Poor customer service.</b> Clinics waiting days for a callback on a simple order. Accountability was an afterthought.</span></div>
-      <div class="bullet"><span><b>Inconsistent quality control.</b> Example: wrong product shipped due to mislabeling — a female patient received a male testosterone dose and was on it for several months.</span></div>
-      <div class="bullet"><span><b>Lack of efficient processes.</b> Price and formulary changes not communicated to clinics before they affected patient care.</span></div>
-    </div>
+  <div class="section-rule"><div class="section-rule-text">Why Did We Form Embark RX?</div><div class="section-rule-line"></div></div>
+  <div class="bullets">
+    <div class="bullet"><b>Poor customer service from competitors</b></div>
+    <div class="bullet"><b>Poor quality control from competitors.</b> Example: Sending out the wrong products because the vial was mislabeled — one female patient received a male dose of testosterone and was on it for several months.</div>
+    <div class="bullet"><b>Lack of efficiency and processes from competitors.</b> Example: Not communicating price changes and formulary changes to the clinic.</div>
   </div>
 
   <div class="section-rule" style="margin-top:24px"><div class="section-rule-text">Market Outlook</div><div class="section-rule-line"></div></div>
-
   <div class="stat-bar cols-3">
-    <div class="stat-item"><div class="stat-num">1,000%</div><div class="stat-lbl">Projected industry growth<br>over the next 5 years</div></div>
-    <div class="stat-item"><div class="stat-num">4 of 5</div><div class="stat-lbl">Peptides currently consumed<br>from the black market</div></div>
-    <div class="stat-item"><div class="stat-num">503A</div><div class="stat-lbl">Embark RX — patient-specific,<br>compliant, quality-controlled</div></div>
+    <div class="stat-item"><div class="stat-num">1,000%</div><div class="stat-lbl">Projected growth over<br>the next 5 years</div></div>
+    <div class="stat-item"><div class="stat-num">4 of 5</div><div class="stat-lbl">Peptides currently taken<br>from the black market</div></div>
+    <div class="stat-item"><div class="stat-num">503A</div><div class="stat-lbl">Embark RX — patient-specific<br>and compliant</div></div>
   </div>
-
-  <div class="highlight-box">
-    <strong>The future of medicine is preventive, not reactive.</strong> The same market forces driving GLP-1 demand are opening doors for HRT, peptides, and personalized compounding across every specialty we target. Embark is built at the center of this shift.
+  <div class="bullets" style="margin-top:10px">
+    <div class="bullet">Future of medicine: preventive medicine vs. reactive medicine</div>
   </div>
 </div>
 
-<!-- S1: USP -->
+<!-- S1 USP -->
 <div id="s1-usp" class="section">
   <div class="chapter-opener">
-    <div class="chapter-num">Chapter 02 — Session 1</div>
-    <div class="chapter-title">Our Unique Selling Proposition</div>
+    <div class="chapter-num">Session 1</div>
+    <div class="chapter-title">Embark RX's Unique Selling Proposition</div>
     <div class="chapter-sub">What we lead with in every provider conversation</div>
   </div>
 
   <div class="section-rule"><div class="section-rule-text">Quality</div><div class="section-rule-line"></div></div>
-  <div class="card">
-    <div class="product-name" style="font-size:1rem;margin-bottom:6px">Third-Party Tested. Every Batch.</div>
-    <p>Potency, sterility, and endotoxin testing on every compounding run. Full QMS: investigation reporting, root cause analysis, corrective action plans. API identity testing on every new lot received. All third-party tested. Most competitors claim quality — we have documented systems to back it up.</p>
+  <div class="bullets">
+    <div class="bullet">Potency, Sterility, Endotoxin testing</div>
+    <div class="bullet">QMS system for investigation reporting, root cause analysis, and corrective action plans — ensures problems do not continue to happen</div>
+    <div class="bullet">ID Test anytime we receive new API to verify it is what the COA says it is</div>
+    <div class="bullet">All 3rd party tested</div>
   </div>
 
   <div class="section-rule"><div class="section-rule-text">Customer Experience</div><div class="section-rule-line"></div></div>
-  <div class="card">
-    <div class="product-name" style="font-size:1rem;margin-bottom:6px">Accountability. Transparency. Fast Response.</div>
-    <p>Get back to customers quickly — even without a full answer. Acknowledge first, resolve second. This is the #1 complaint providers have about other pharmacies. Proactive communication on any change that could affect delivery or formulary.</p>
-  </div>
+  <div class="card"><p>This is where we can stand out against our competitors. <b>Accountability. Transparency.</b> Get back to your customers quickly, even if you don't have an answer yet. Let them know you are working on it. It goes a long way.</p></div>
 
   <div class="section-rule"><div class="section-rule-text">Turnaround Time</div><div class="section-rule-line"></div></div>
-  <div class="card">
-    <div class="product-name" style="font-size:1rem;margin-bottom:6px">Goal: 72 Hours or Under</div>
-    <p>One week is acceptable but not the standard. Many competitors run 2–3 week turnarounds during peak periods. Speed is a genuine, provable differentiator that directly affects clinic cash flow and patient outcomes.</p>
+  <div class="bullets">
+    <div class="bullet">Our goal is to maintain lead times of <b>72 hours or under</b></div>
+    <div class="bullet">1 week is acceptable but shouldn't be the standard</div>
+    <div class="bullet">A lot of our larger competitors go through periods of being around 2–3 week turnaround times</div>
   </div>
 
   <div class="section-rule"><div class="section-rule-text">Competitive Pricing</div><div class="section-rule-line"></div></div>
-  <div class="card">
-    <div class="product-name" style="font-size:1rem;margin-bottom:6px">Win the Business First</div>
-    <p>Long-term: competitive, not cheapest. Early on, be aggressive — lower price beats no business. Over time, our reputation for being easy to work with becomes the deciding factor. Reps have pricing flexibility; bring competitive pricing from accounts to leadership.</p>
+  <div class="bullets">
+    <div class="bullet">Our long-term goal is to not be the lowest, but we want to stay competitive</div>
+    <div class="bullet">Early on we will be very aggressive if we need to get the business — lower price is better than no business at all</div>
+    <div class="bullet">Over time we want our reputation of being easy to work with to be the deciding factor</div>
+  </div>
+  <div class="highlight-box"><strong>Reference:</strong> See the USP Cheat Sheet reference document distributed with this guide.</div>
+</div>
+
+<!-- S1 ACCOUNTS & MARKETS -->
+<div id="s1-accounts" class="section">
+  <div class="chapter-opener">
+    <div class="chapter-num">Session 1</div>
+    <div class="chapter-title">Types of Accounts &amp; Markets</div>
+    <div class="chapter-sub">How to classify, qualify, and prioritize your book</div>
+  </div>
+
+  <div class="section-rule"><div class="section-rule-text">Types of Accounts</div><div class="section-rule-line"></div></div>
+  <div class="kv-table">
+    <div class="kv-row"><div class="kv-key">Patient Pay</div><div class="kv-val">Patient pays us. Once they pay, the script is fulfilled.</div></div>
+    <div class="kv-row"><div class="kv-key">Clinic Bill</div><div class="kv-val">B2B between the pharmacy and the clinic. We serve their providers, teams, and patients. The clinic typically always handles patient communication. The clinic and patient have access to shipping and tracking information. Clinic bill clinics typically mark up the prescription 80–100%.</div></div>
+    <div class="kv-row"><div class="kv-key">Central Fill Agreement</div><div class="kv-val">Uncommon now but may increase as the business evolves.</div></div>
+  </div>
+
+  <div class="section-rule"><div class="section-rule-text">Account Classification</div><div class="section-rule-line"></div></div>
+  <div class="stat-bar cols-3">
+    <div class="stat-item"><div class="stat-num">20/80</div><div class="stat-lbl">Pareto's Principle — 20% of accounts<br>make up 80% of volume</div></div>
+    <div class="stat-item"><div class="stat-num">$20K+</div><div class="stat-lbl">Starting definition<br>of a Key Account</div></div>
+    <div class="stat-item"><div class="stat-num">$5K–$150K</div><div class="stat-lbl">Clinic Bill sweet spot — personal<br>relationship still possible</div></div>
+  </div>
+  <div class="bullets" style="margin-top:10px">
+    <div class="bullet"><b>Patient Pay accounts</b> — usually but not always smaller volumes, easy to convert and higher margins</div>
+    <div class="bullet"><b>Telehealth</b> — high volume, low margin. If a clinic bill account does over $150K–$200K a month at lower margins we may require a contract to protect the business. Will have a calculated ramp-up period to allow for proper staffing.</div>
+  </div>
+
+  <div class="section-rule"><div class="section-rule-text">Account Qualification</div><div class="section-rule-line"></div></div>
+  <div class="bullets">
+    <div class="bullet">Can't always judge a book by its cover — most clinics are at least worth having a conversation</div>
+    <div class="bullet">Will check website and socials to make sure they are not advertising GLP-1s as commercial "copy cats" — we won't be able to onboard them unless they remove it</div>
   </div>
 
   <div class="gold-rule"></div>
-  <div class="section-h2">Compliance Differentiators — Lead With These</div>
 
+  <div class="section-rule"><div class="section-rule-text">Main Markets</div><div class="section-rule-line"></div></div>
   <div class="kv-table">
-    <div class="kv-row"><div class="kv-key">FDA Greenlist Suppliers</div><div class="kv-val">We source all API exclusively from FDA Greenlist suppliers. Many pharmacies use FDA-approved vendors that are NOT Greenlist. FDA enforcement is expected to increase — we are already fully compliant. Lead with this.</div></div>
-    <div class="kv-row"><div class="kv-key">No Category 2 Products</div><div class="kv-val">We do not compound products on the FDA Category 2 list. Competitors doing so expose their provider accounts to serious regulatory risk — extreme fines and potential shutdown.</div></div>
-    <div class="kv-row"><div class="kv-key">Visual Inspection</div><div class="kv-val">We perform visual inspection on every batch. Not required by USP standards, but we do it anyway. An extra step above what the industry requires.</div></div>
-    <div class="kv-row"><div class="kv-key">COA Verification</div><div class="kv-val">Every API shipment comes with a Certificate of Analysis from the vendor. We run our own independent ID test to confirm it before any batch goes into production.</div></div>
-  </div>
-</div>
-
-<!-- S1: MARKETS -->
-<div id="s1-markets" class="section">
-  <div class="chapter-opener">
-    <div class="chapter-num">Chapter 03 — Session 1</div>
-    <div class="chapter-title">Markets & Account Strategy</div>
-    <div class="chapter-sub">Who we target, how we size accounts, how to prioritize</div>
-  </div>
-
-  <div class="section-rule"><div class="section-rule-text">Primary Markets</div><div class="section-rule-line"></div></div>
-  <div class="kv-table">
-    <div class="kv-row"><div class="kv-key">Wellness</div><div class="kv-val">Men's & women's health, longevity, functional & concierge medicine. Typically Clinic Bill.</div></div>
-    <div class="kv-row"><div class="kv-key">Urology</div><div class="kv-val">Steadiest, most predictable market. TRT, trimix, sexual health. Patient Pay margins are excellent here.</div></div>
-    <div class="kv-row"><div class="kv-key">Internal & Family Medicine</div><div class="kv-val">Lower volumes, historically easy to convert. Sometimes high volume. Higher margins.</div></div>
-    <div class="kv-row"><div class="kv-key">Med Spas</div><div class="kv-val">Big for GLP-1s and potentially peptides.</div></div>
-    <div class="kv-row"><div class="kv-key">OB/GYN</div><div class="kv-val">GLP programs + HRT demand. Could become a primary market as state coverage expands.</div></div>
+    <div class="kv-row"><div class="kv-key">Wellness</div><div class="kv-val">Men's & women's health, longevity, functional medicine, concierge medicine. Typically Clinic Bill.</div></div>
+    <div class="kv-row"><div class="kv-key">Urology</div><div class="kv-val">One of the steadiest, most predictable markets.</div></div>
+    <div class="kv-row"><div class="kv-key">Internal & Family Medicine</div><div class="kv-val">Lower volumes but historically easy to convert the business. Sometimes you will find one that does high volume. Higher margins.</div></div>
+    <div class="kv-row"><div class="kv-key">Telehealth</div><div class="kv-val">Initially more challenging until we get more states. High volume, low margin. Higher risk due to staffing. Will require a contract if they are above a certain size.</div></div>
+    <div class="kv-row"><div class="kv-key">Med Spas</div><div class="kv-val">Big for GLP-1s and possibly peptides.</div></div>
   </div>
 
   <div class="section-rule gold"><div class="section-rule-text">Emerging Markets</div><div class="section-rule-line"></div></div>
   <div class="kv-table">
     <div class="kv-row"><div class="kv-key">Plastic Surgeons</div><div class="kv-val">GLP-1s and peptides.</div></div>
-    <div class="kv-row"><div class="kv-key">Bariatric</div><div class="kv-val">GLP-1s — natural fit.</div></div>
-    <div class="kv-row"><div class="kv-key">Orthopedics</div><div class="kv-val">BPC-157 and TB-500. Possibly GLP-1s for pre-op weight loss.</div></div>
-    <div class="kv-row"><div class="kv-key">Telehealth</div><div class="kv-val">High volume, low margin. More state coverage needed first. Contract required at $150K–200K/mo.</div></div>
-    <div class="kv-row"><div class="kv-key">Anyone using GLPs or peptides</div><div class="kv-val">Don't overlook any practice prescribing in our categories.</div></div>
+    <div class="kv-row"><div class="kv-key">Bariatric</div><div class="kv-val">GLP-1s.</div></div>
+    <div class="kv-row"><div class="kv-key">Ortho</div><div class="kv-val">Peptides like BPC-157 and TB-500 may be a market. Possibly even GLP-1s if they need their patients to drop weight safely and quickly.</div></div>
+    <div class="kv-row"><div class="kv-key">OB/GYN</div><div class="kv-val">Could possibly be a main market. Bigger OB/GYN clinics are doing GLP programs. Also a need for HRT.</div></div>
+    <div class="kv-row"><div class="kv-key">Anyone using peptides or GLP products</div><div class="kv-val">Any practice currently utilizing these products in their practice.</div></div>
   </div>
 </div>
 
-<!-- S1: ACCOUNTS -->
-<div id="s1-accounts" class="section">
-  <div class="chapter-opener">
-    <div class="chapter-num">Chapter 03 (continued) — Session 1</div>
-    <div class="chapter-title">Account Classification</div>
-    <div class="chapter-sub">How to size, prioritize, and categorize your book</div>
-  </div>
-
-  <div class="stat-bar cols-3">
-    <div class="stat-item"><div class="stat-num">20%</div><div class="stat-lbl">of accounts = 80% of volume<br>(Pareto Principle)</div></div>
-    <div class="stat-item"><div class="stat-num">$20K+</div><div class="stat-lbl">per month defines<br>a Key Account</div></div>
-    <div class="stat-item"><div class="stat-num">$5K–$150K</div><div class="stat-lbl">Clinic Bill<br>sweet spot</div></div>
-  </div>
-
-  <div class="section-rule" style="margin-top:20px"><div class="section-rule-text">Account Types</div><div class="section-rule-line"></div></div>
-  <div class="kv-table">
-    <div class="kv-row"><div class="kv-key">Patient Pay</div><div class="kv-val">Script released on payment receipt. Usually smaller volumes. Easy to convert. Higher margins. Best for testosterone at Urology & OBGYN.</div></div>
-    <div class="kv-row"><div class="kv-key">Clinic Bill</div><div class="kv-val">Pharmacy bills the clinic directly. Clinic handles patient communication. Both clinic and patient have shipping/tracking access. Clinics typically mark up 80–100%.</div></div>
-    <div class="kv-row"><div class="kv-key">Telehealth</div><div class="kv-val">High volume, low margin. Contract required at $150K–$200K/mo. Plan for staffing ramp-up — don't disrupt existing accounts.</div></div>
-    <div class="kv-row"><div class="kv-key">Central Fill</div><div class="kv-val">Uncommon for now. May grow as the business evolves. Details TBD.</div></div>
-  </div>
-</div>
-
-<!-- S1: ONBOARDING -->
+<!-- S1 ONBOARDING -->
 <div id="s1-onboarding" class="section">
   <div class="chapter-opener">
-    <div class="chapter-num">Chapter 04 — Session 1</div>
-    <div class="chapter-title">Account Qualification & Onboarding</div>
-    <div class="chapter-sub">Where competitors drop the ball — make this a differentiator</div>
+    <div class="chapter-num">Session 1</div>
+    <div class="chapter-title">Account Onboarding &amp; Billing Terms</div>
+    <div class="chapter-sub">Where a lot of competitors drop the ball — needs to be smooth and efficient</div>
   </div>
 
-  <div class="section-rule"><div class="section-rule-text">Qualification</div><div class="section-rule-line"></div></div>
-  <div class="card">
-    <p><b>Don't judge a book by its cover. Most clinics are worth a conversation.</b></p>
-    <p style="margin-top:10px;color:var(--red)">Before onboarding, review the clinic's website and social media. If they are advertising GLP-1s by commercial brand name (Ozempic, Wegovy, etc.) as copy cats — they cannot be onboarded until that content is removed. <b style="color:var(--red)">Non-negotiable.</b></p>
-  </div>
-
-  <div class="section-rule"><div class="section-rule-text">Onboarding Process</div><div class="section-rule-line"></div></div>
+  <div class="section-rule"><div class="section-rule-text">Account Onboarding</div><div class="section-rule-line"></div></div>
   <div class="step-table">
-    <div class="step-row"><div class="step-num">1</div><div class="step-body"><div class="step-title">Gather Practice Information</div><div class="step-desc">DEA license (if controlled substances), address, provider list & credentials, products of interest, estimated monthly volumes</div></div></div>
-    <div class="step-row"><div class="step-num">2</div><div class="step-body"><div class="step-title">Submit via HubSpot</div><div class="step-desc">All onboarding flows through the CRM for efficiency, tracking, and any future account disputes</div></div></div>
-    <div class="step-row"><div class="step-num">3</div><div class="step-body"><div class="step-title">Pharmacy Review & Approval</div><div class="step-desc">Pharmacy ops team creates and approves the account in the system</div></div></div>
-    <div class="step-row"><div class="step-num">4</div><div class="step-body"><div class="step-title">Portal Credentials Sent</div><div class="step-desc">Login sent to clinic. Portal is the preferred and most efficient prescribing method</div></div></div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><div class="step-title">Gather Basic Information</div><div class="step-desc">DEA (if prescribing controlled substances), address, list of providers and credentials, products they are interested in, <b>estimated volumes</b></div></div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><div class="step-title">Run Through HubSpot</div><div class="step-desc">For efficiency. Pharmacy team will review, create account, and approve.</div></div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><div class="step-title">Login Credentials Sent</div><div class="step-desc">Sent to the clinic once the account is approved.</div></div></div>
   </div>
-
-  <div class="highlight-box"><strong>Why estimated volume matters:</strong> Drives production scheduling, reduces waste, and enables proper staffing. Always get an estimate — even a rough one. Volume estimates also determine how aggressive we can be on pricing.</div>
+  <div class="highlight-box"><strong>Estimated volumes is important</strong> for managing the production schedule, reducing waste, and staffing.</div>
 
   <div class="gold-rule"></div>
-  <div class="section-rule muted"><div class="section-rule-text">Billing Terms (Draft)</div><div class="section-rule-line"></div></div>
-  <div class="kv-table">
-    <div class="kv-row"><div class="kv-key">Clinic Bill</div><div class="kv-val">Weekly or biweekly cycle. 30 days to dispute discrepancies. Special pricing reviewed at 60 days — may revert to standard if estimated volumes are not met.</div></div>
-    <div class="kv-row"><div class="kv-key">Patient Pay</div><div class="kv-val">Script released only upon payment receipt. Collect by phone or through online payment.</div></div>
-    <div class="kv-row"><div class="kv-key">Telehealth Threshold</div><div class="kv-val">Clinic bill accounts over $150K–$200K/month require a formal contract. Planned ramp-up period required — don't take on more volume than current staffing supports.</div></div>
+
+  <div class="section-rule muted"><div class="section-rule-text">Billing Terms & Conditions — Not Fully Decided Yet</div><div class="section-rule-line"></div></div>
+  <p>We will have terms and conditions that outline payment terms, time frame for disputes, etc. as an attachment to our agreement. It may look similar to the following:</p>
+
+  <div class="section-rule"><div class="section-rule-text">Clinic Bill</div><div class="section-rule-line"></div></div>
+  <div class="bullets">
+    <div class="bullet">Weekly or biweekly billing cycle initially — may go to monthly eventually</div>
+    <div class="bullet">30 days to dispute billing discrepancies. Terms and conditions will be included in onboarding documents.</div>
+    <div class="bullet">Special pricing is based on estimated volumes. Clause that says we will review after 60 days and may revert to standard clinic bill or appropriate pricing if initial volumes are not met.</div>
   </div>
 
-  <p class="muted" style="font-size:0.82rem">Common Compounding Terms & Definitions are covered in a separate reference document distributed with this guide.</p>
+  <div class="section-rule"><div class="section-rule-text">Patient Pay</div><div class="section-rule-line"></div></div>
+  <div class="bullets">
+    <div class="bullet">Script is released once we receive payment from the patient. We will collect by phone or through online pay.</div>
+  </div>
+
+  <div class="gold-rule"></div>
+  <div class="highlight-box"><strong>Common Compounding Industry Terms and Definitions:</strong> See attached reference document.</div>
 </div>
 
-<!-- S1: COMPETITORS -->
+<!-- S1 COMPETITORS -->
 <div id="s1-competitors" class="section">
   <div class="chapter-opener">
-    <div class="chapter-num">Chapter 05 — Session 1</div>
-    <div class="chapter-title">Competitive Landscape</div>
-    <div class="chapter-sub">Know who you're selling against — and how we win</div>
+    <div class="chapter-num">Session 1</div>
+    <div class="chapter-title">Major Competitors</div>
+    <div class="chapter-sub">Know who you're selling against</div>
   </div>
 
   <div class="comp-table">
-    <div class="comp-header">
-      <span>Competitor</span><span>Reputation</span><span>How We Win</span>
-    </div>
-    <div class="comp-row"><div class="comp-cell">Revive RX</div><div class="comp-cell">Top 5 nationally. Quality program has weakened in the last 1–2 years.</div><div class="comp-cell">Speed, responsiveness, consistent quality, relationship depth.</div></div>
-    <div class="comp-row"><div class="comp-cell">Empower</div><div class="comp-cell">First to market. Large — widely known for poor customer service.</div><div class="comp-cell">Quality, accountability, and turnaround time. Easy CX win.</div></div>
-    <div class="comp-row"><div class="comp-cell">Hallandale</div><div class="comp-cell">Competitive pricing. Good communication. Solid reputation.</div><div class="comp-cell">Regional relationships, personalized service, compliance positioning.</div></div>
-    <div class="comp-row"><div class="comp-cell">Optimal Balance</div><div class="comp-cell warn">Houston-based. Low pricing, poor quality & training. Making Category 2 peptides — serious regulatory risk for their providers.</div><div class="comp-cell">Quality, compliance, protecting providers from risk they may not know they're carrying.</div></div>
-    <div class="comp-row"><div class="comp-cell">Grand Ave. Pharmacy</div><div class="comp-cell warn">North Austin. Also making peptides not legal for 503A compounding.</div><div class="comp-cell">Same compliance positioning as Optimal Balance. Educate, don't alarm.</div></div>
-    <div class="comp-row"><div class="comp-cell">Strive</div><div class="comp-cell">National brand. Minimal TX presence. Reportedly high pricing.</div><div class="comp-cell">Local relationships, speed, and accountability.</div></div>
+    <div class="comp-header"><span>Competitor</span><span>Notes</span><span>How We Compare</span></div>
+    <div class="comp-row"><div class="comp-cell">Revive RX</div><div class="comp-cell">Top 5 pharmacy in the country. Pretty competitive pricing. They used to have a good quality program but that has changed in the last year or two.</div><div class="comp-cell">Quality, turnaround time, customer service.</div></div>
+    <div class="comp-row"><div class="comp-cell">Empower</div><div class="comp-cell">First to market. Large but poor reputation for customer service.</div><div class="comp-cell">Customer experience, accountability, quality.</div></div>
+    <div class="comp-row"><div class="comp-cell">Hallandale</div><div class="comp-cell">Competitive pricing. Do a good job with communication.</div><div class="comp-cell">Pricing, quality, turnaround.</div></div>
+    <div class="comp-row"><div class="comp-cell">Optimal Balance</div><div class="comp-cell warn">Based out of Houston. Low pricing, poor quality. Make a lot of peptides that are not legal for compounding pharmacies to make currently. Poor customer service due to lack of training, procedures, etc.</div><div class="comp-cell">Quality, compliance, customer service, training.</div></div>
+    <div class="comp-row"><div class="comp-cell">Strive</div><div class="comp-cell">National brand. Never came across them much in TX. High pricing from what I have heard but pretty good on quality.</div><div class="comp-cell">Pricing, local relationships.</div></div>
+    <div class="comp-row"><div class="comp-cell">Grand Ave. Pharmacy</div><div class="comp-cell warn">Out of North Austin. Make a lot of peptides that are not legal for compounding pharmacies to make currently.</div><div class="comp-cell">Compliance, quality standards.</div></div>
   </div>
-
-  <div class="highlight-box"><strong>Compliance angle:</strong> Optimal Balance and Grand Ave. are making Category 2 peptides — products 503A pharmacies are not legally permitted to compound. This exposes their providers to punishing FDA fines and potential shutdown. Frame this as protecting providers, not attacking competitors.</div>
 </div>
 
-<!-- S1: COMMISSION -->
+<!-- S1 COMMISSION & TERRITORY -->
 <div id="s1-commission" class="section">
   <div class="chapter-opener">
-    <div class="chapter-num">Chapter 06 — Session 1</div>
-    <div class="chapter-title">Commission & Territory</div>
+    <div class="chapter-num">Session 1</div>
+    <div class="chapter-title">Commission Structure &amp; Territory Policy</div>
     <div class="chapter-sub">How you get paid and the rules of engagement</div>
   </div>
 
   <div class="section-rule"><div class="section-rule-text">Commission Structure</div><div class="section-rule-line"></div></div>
   <div class="stat-bar cols-1" style="margin-bottom:12px">
-    <div class="stat-item" style="padding:28px 16px"><div class="stat-num" style="font-size:3rem">10%</div><div class="stat-lbl" style="font-size:0.88rem">Commission rate for the first 6 months</div></div>
+    <div class="stat-item" style="padding:28px 16px"><div class="stat-num" style="font-size:3rem">10%</div><div class="stat-lbl" style="font-size:.88rem">For the first 6 months of being open</div></div>
   </div>
-  <div class="card">
-    <p><b>Paid monthly.</b> Commission for the previous month paid at end of the following month — allows time to settle billing disputes and collect outstanding balances before disbursement.</p>
-    <p style="margin-top:8px"><b>Top performers.</b> Goal is to provide in-house sales support and dedicated account managers as high-performing reps scale their book.</p>
+  <div class="bullets">
+    <div class="bullet">Commission will be paid for the previous month towards the end of the latter month — gives us time to settle any billing disputes and rectify outstanding bills before payment</div>
+    <div class="bullet">Our goal is to eventually provide in-house sales support and account managers for higher performing reps</div>
   </div>
 
   <div class="gold-rule"></div>
 
   <div class="section-rule"><div class="section-rule-text">Territory Policy</div><div class="section-rule-line"></div></div>
-  <div class="kv-table">
-    <div class="kv-row"><div class="kv-key">Home Base</div><div class="kv-val">Each rep has a defined home base — where you are expected to build focus and put in concentrated effort.</div></div>
-    <div class="kv-row"><div class="kv-key">Cold Leads</div><div class="kv-val">Pharmacy-generated cold leads distributed by defined territory for consistency.</div></div>
-    <div class="kv-row"><div class="kv-key">Warm Leads / Inbound</div><div class="kv-val">Customer inquiries distributed round-robin. Luck of the draw — keeps it fair.</div></div>
-    <div class="kv-row"><div class="kv-key">Referrals</div><div class="kv-val">Referrals go to the rep who received them. Yours to work.</div></div>
-    <div class="kv-row"><div class="kv-key">Disputed Accounts</div><div class="kv-val">Decided case by case. CRM activity log and communications will be referenced.</div></div>
-    <div class="kv-row"><div class="kv-key">Sub-Reps / Assistants</div><div class="kv-val">Must be communicated to leadership, vetted, and trained before they start. Non-negotiable.</div></div>
+  <div class="bullets">
+    <div class="bullet"><b>No defined territory for right now.</b> This may change as we grow.</div>
+    <div class="bullet">Each rep will have a <b>"home base"</b> — this will be where the rep is expected to make a targeted effort to grow</div>
+    <div class="bullet">Pharmacy-generated cold leads will be distributed as a "defined territory" for consistency</div>
+    <div class="bullet">Customer inquiries (warm leads) will be on a round-robin schedule to make it as fair as possible — luck of the draw</div>
+    <div class="bullet">Referrals will go to the rep that received the referral</div>
+    <div class="bullet">Any discrepancies on clinics called on by more than one rep will be decided on a case by case basis. Communications and CRM will be referenced to decide who receives credit.</div>
+    <div class="bullet">Any sales assistants or sub-reps need to be communicated to us — they will need to be vetted and go through the training process before they begin</div>
   </div>
 
   <div class="gold-rule"></div>
-  <div class="section-rule"><div class="section-rule-text">Getting Started</div><div class="section-rule-line"></div></div>
-  <div class="kv-table">
-    <div class="kv-row"><div class="kv-key">Make a Plan</div><div class="kv-val">Easy to get distracted in a rapidly growing market. Plan your work and work your plan.</div></div>
-    <div class="kv-row"><div class="kv-key">Process-Based Goals</div><div class="kv-val">Focus on controllable behaviors: calls made, meetings booked, follow-ups sent.</div></div>
-    <div class="kv-row"><div class="kv-key">Follow Up</div><div class="kv-val">Aim for 3 follow-ups before moving on. Closing an account is often about timing more than anything else.</div></div>
-    <div class="kv-row"><div class="kv-key">Use HubSpot</div><div class="kv-val">Log every touchpoint. If it's not in the CRM, it didn't happen. Protects you on any disputed accounts.</div></div>
+
+  <div class="section-rule"><div class="section-rule-text">Getting Started in Your Territory</div><div class="section-rule-line"></div></div>
+  <div class="bullets">
+    <div class="bullet"><b>Make a plan</b> — it is easy to get distracted in this business because of the rapid growth. Plan your work and work your plan.</div>
+    <div class="bullet"><b>Set goals</b> — focus on process-based goals, not outcome-based</div>
+    <div class="bullet"><b>Follow up</b> — be sure to follow up. This is actually more difficult than it sounds because of how many opportunities are out there. Follow up 3 times before you move on. Sometimes closing an account is all about the timing.</div>
   </div>
 </div>
 
-<!-- ═══════════════════════════ SESSION 2 ═══════════════════════════ -->
+<!-- LUNCH -->
+<div id="lunch" class="section">
+  <div class="session-banner">
+    <div class="s-num">Working Lunch · 1 Hour</div>
+    <h1>Q&amp;A with Leadership</h1>
+    <div class="s-hrs">Open discussion — Brett · Jeremy · Scriven</div>
+    <div class="s-divider"></div>
+    <div class="s-topics-label">Use This Time For</div>
+    <div class="s-topics">
+      <div class="s-topic">Questions on anything covered in Session 1</div>
+      <div class="s-topic">Questions on products, markets, or strategy</div>
+      <div class="s-topic">Open discussion with ownership</div>
+    </div>
+  </div>
+</div>
 
-<!-- S2: WORKFLOW -->
+<!-- S2 WORKFLOW -->
 <div id="s2-workflow" class="section">
   <div class="session-banner">
     <div class="s-num">Session 2 · 2 Hours</div>
-    <h1>Pharmacy & Product Training</h1>
+    <h1>Pharmacy &amp; Product Training</h1>
     <div class="s-hrs">Pharmacy Workflow · GLP-1s · TRT/HRT · Sexual Health · Vitamins · Peptides</div>
     <div class="s-divider"></div>
     <div class="s-topics-label">Topics Covered This Session</div>
     <div class="s-topics">
-      <div class="s-topic">Pharmacy workflow overview — how a script moves from order to delivery</div>
-      <div class="s-topic">Core Products: GLP-1 Weight Loss (Semaglutide, Tirzepatide, Ondansetron)</div>
-      <div class="s-topic">Core Products: TRT / HRT / Anabolics — full formulary</div>
-      <div class="s-topic">Core Products: Sexual Health / ED & Vitamins</div>
-      <div class="s-topic">Peptides: Market overview & current formulary (17 products)</div>
+      <div class="s-topic">Pharmacy workflow overview</div>
+      <div class="s-topic">GLP-1 products (Semaglutide, Tirzepatide, Ondansetron)</div>
+      <div class="s-topic">TRT / HRT / Anabolics — full formulary</div>
+      <div class="s-topic">Sexual Health / ED products</div>
+      <div class="s-topic">Vitamins &amp; Aminos</div>
+      <div class="s-topic">Current peptide market &amp; full formulary</div>
     </div>
   </div>
 
-  <div class="section-rule"><div class="section-rule-text">Order Flow</div><div class="section-rule-line"></div></div>
+  <div class="section-rule"><div class="section-rule-text">Pharmacy Workflow Overview</div><div class="section-rule-line"></div></div>
   <div class="step-table">
-    <div class="step-row"><div class="step-num">1</div><div class="step-body"><div class="step-title">Data Entry</div><div class="step-desc">Entered via Portal (preferred), EMR, or Fax. AI-assisted. Portal = most efficient for the pharmacy — always encourage providers to use it.</div></div></div>
-    <div class="step-row"><div class="step-num">2</div><div class="step-body"><div class="step-title">PV1 — First Verification</div><div class="step-desc">First pharmacist review and verification before fulfillment begins.</div></div></div>
-    <div class="step-row"><div class="step-num">3</div><div class="step-body"><div class="step-title">Fulfillment</div><div class="step-desc">Product pulled from stock to allow medication to be dispensed.</div></div></div>
-    <div class="step-row"><div class="step-num">4</div><div class="step-body"><div class="step-title">PV2 — Second Verification</div><div class="step-desc">Second pharmacist check before final packaging. Double verification is a quality standard above most competitors.</div></div></div>
+    <div class="step-row"><div class="step-num">1</div><div class="step-body"><div class="step-title">Data Entry</div><div class="step-desc">Received prescription is entered into our pharmacy management software. Portal, EMR, or Fax. Will also utilize AI bot to enter data. Portal is the preferred method and most efficient for the pharmacy.</div></div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-body"><div class="step-title">PV1 — Prescription Verification 1</div><div class="step-desc">First pharmacist verification of the prescription.</div></div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-body"><div class="step-title">Fulfillment</div><div class="step-desc">Product is pulled from stock to allow for medication to be dispensed.</div></div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-body"><div class="step-title">PV2 — Prescription Verification 2</div><div class="step-desc">Second pharmacist verification before dispensing.</div></div></div>
     <div class="step-row"><div class="step-num">5</div><div class="step-body"><div class="step-title">Dispensing</div><div class="step-desc">Labels printed, supplies packaged, package assembled.</div></div></div>
-    <div class="step-row"><div class="step-num">6</div><div class="step-body"><div class="step-title">Shipping</div><div class="step-desc">Shipping label generated, handed to carrier. Both clinic and patient have access to shipping and tracking.</div></div></div>
-  </div>
-
-  <div class="stat-bar cols-3">
-    <div class="stat-item"><div class="stat-num">72 hrs</div><div class="stat-lbl">Target turnaround</div></div>
-    <div class="stat-item"><div class="stat-num">1 week</div><div class="stat-lbl">Acceptable outer limit</div></div>
-    <div class="stat-item"><div class="stat-num">2–3 weeks</div><div class="stat-lbl">Many competitors<br>during peak periods</div></div>
-  </div>
-
-  <div class="section-rule" style="margin-top:20px"><div class="section-rule-text">Cold Chain Products</div><div class="section-rule-line"></div></div>
-  <div class="card">
-    <p>Products requiring refrigeration are shipped cold — typically next-day — in a cooler with ice packs. Embark RX is exploring packaging that allows standard 2-day delivery. Until then, cold chain ships next-day.</p>
-    <div class="bullets" style="margin-top:10px">
-      <div class="bullet">Trimix, Super Trimix, and other sterile injectables fall into this category.</div>
-      <div class="bullet">Always communicate cold chain requirements during account onboarding so clinics plan accordingly.</div>
-    </div>
-  </div>
-
-  <div class="section-rule"><div class="section-rule-text">Clarifications</div><div class="section-rule-line"></div></div>
-  <div class="card">
-    <p>A <b>Clarification</b> is a prescription requiring additional information before we can fill it.</p>
-    <div class="bullets" style="margin-top:10px">
-      <div class="bullet">Missing patient demographic information</div>
-      <div class="bullet">Address that doesn't register with mail couriers</div>
-      <div class="bullet">Dosing instructions outside standard patient safety parameters</div>
-    </div>
-    <p style="margin-top:10px;color:var(--muted)">Walk clinic staff through how to submit complete prescriptions through the portal during onboarding — reduces clarifications and speeds up fulfillment.</p>
+    <div class="step-row"><div class="step-num">6</div><div class="step-body"><div class="step-title">Shipping</div><div class="step-desc">Shipping label generated, exchanged with mail courier.</div></div></div>
   </div>
 </div>
 
-<!-- S2: GLP -->
+<!-- S2 GLP -->
 <div id="s2-glp" class="section">
   <div class="chapter-opener">
-    <div class="chapter-num">Chapter 08 — Session 2</div>
-    <div class="chapter-title">Core Products: GLP-1 Weight Loss</div>
-    <div class="chapter-sub">Highest-volume product category — know this cold</div>
+    <div class="chapter-num">Session 2 — Core Products</div>
+    <div class="chapter-title">GLP-1 Weight Loss</div>
+    <div class="chapter-sub">Semaglutide · Tirzepatide · Ondansetron</div>
   </div>
 
   <div class="warn-card">
-    <div class="warn-label">⚠ Compliance — Read This First</div>
-    <p>Do NOT reference commercial drug names (Ozempic, Wegovy, Mounjaro, Zepbound) when speaking with providers. Our products are not copycat drugs — they are compounded with B12, B6, or Glycine in addition to the active ingredient. Providers must include a written reason for compounding. We source exclusively from FDA Greenlist suppliers. Lead with this fact in every GLP conversation.</p>
+    <div class="warn-label">⚠ Important — Compliance</div>
+    <p>This class of drugs is highly scrutinized right now due to ongoing lawsuits with big pharma. It is very important we do not reference the commercial drugs when explaining these to providers. We are not a "copycat" drug. Our products are compounded with either B12, B6, or Glycine in addition to the active ingredient. They require a written reason for compounding by the provider in order for us to stay compliant. This has never happened in the history of compounding.</p>
   </div>
 
-  <div class="section-rule"><div class="section-rule-text">Products — in Excel Order</div><div class="section-rule-line"></div></div>
+  <div class="section-rule"><div class="section-rule-text">Greenlist Suppliers</div><div class="section-rule-line"></div></div>
+  <div class="card"><p>The FDA has a requirement for 503A compounding pharmacies to use a "green list" supplier to source the API for these products. We already use FDA approved vendors, but not all FDA approved vendors are "green list" suppliers. Make sure we let customers know we are adhering to using "green list" suppliers for sourcing these products. Not all pharmacies are doing it now, but there is a good chance the FDA cracks down on this in the future.</p></div>
+
+  <div class="section-rule"><div class="section-rule-text">Products</div><div class="section-rule-line"></div></div>
   <div class="product-grid">
-    <div class="product-cell"><div class="product-name">Semaglutide</div><div class="product-form">Generation 1 · Wellness · Med Spas · Family & Internal Medicine</div><div class="product-body"><b>Start: 0.25–0.5mg/week · Max: 2.5mg/week.</b> First major GLP. Works nearly as well as tirzepatide with more GI side effects (mainly nausea). Lower cost. Resistance training and adequate protein are essential to preserve lean mass and bone density.</div></div>
-    <div class="product-cell"><div class="product-name">Tirzepatide</div><div class="product-form">Generation 2 · Wellness · Med Spas · Bariatric · Plastic Surgery</div><div class="product-body"><b>Start: 2.5mg/week · Max: 15mg/week.</b> Superior outcomes, fewer side effects. Dual GIP/GLP-1 receptor agonist. More expensive but the preferred option for most patients who can afford it.</div></div>
-    <div class="product-cell" style="grid-column: span 2"><div class="product-name">Ondansetron</div><div class="product-form">Anti-nausea add-on · Wellness · Med Spas</div><div class="product-body">Some providers request this to help patients manage nausea when starting a GLP. Not a significant revenue driver — but a good service offering that builds account loyalty and retention.</div></div>
+    <div class="product-cell">
+      <div class="product-name">Semaglutide</div>
+      <div class="product-form">Gen 1 GLP · Commercial alternatives: Wegovy and Ozempic (Novo)</div>
+      <div class="product-body">The product that started the GLP craze. Works almost as well as tirzepatide, just more side effects — mainly nausea. There are studies that say GLPs cause muscle loss — this is a little misleading. When calorie consumption goes down so does protein consumption. It is important for patients to engage in resistance training and meet protein goals while on GLPs to preserve lean mass. Resistance training also helps preserve bone density.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Tirzepatide</div>
+      <div class="product-form">Gen 2 GLP · Commercial alternatives: Mounjaro and Zepbound (Lilly)</div>
+      <div class="product-body">The second GLP product to follow up semaglutide. Touted as a superior product mainly due to decreased side effects and an increase in weight loss. It is the more expensive option currently.</div>
+    </div>
+    <div class="product-cell span-2">
+      <div class="product-name">Ondansetron</div>
+      <div class="product-form">Anti-nausea</div>
+      <div class="product-body">May be something we carry that some providers ask for to help the patient with nausea when they start a GLP. Not a money maker.</div>
+    </div>
   </div>
 
-  <div class="section-rule"><div class="section-rule-text">Dosing Protocol — Titration</div><div class="section-rule-line"></div></div>
-  <div class="card">
-    <p>GLP drugs use a <b>titration schedule.</b> Patients start at a lower dose and increase monthly until maximum weight loss with fewest side effects is reached. Sometimes patients plateau — the dose is slightly increased to restart progress.</p>
-    <p style="margin-top:8px;color:var(--muted)">Note: Semaglutide and tirzepatide are technically peptides, but kept separate in training because they are currently the highest-volume products we make.</p>
+  <div class="section-rule"><div class="section-rule-text">Dosing — Titration Schedule</div><div class="section-rule-line"></div></div>
+  <div class="bullets">
+    <div class="bullet">GLP drugs use a titration schedule — the patient starts at a lower dose and the dose is increased, typically monthly, until maximum weight loss with the least amount of side effects is reached</div>
+    <div class="bullet">Sometimes patients stall so the dose is slightly increased to begin weight loss again</div>
+    <div class="bullet"><b>Semaglutide:</b> Starting dose: 0.25–0.5mg per week / Max dose: 2.5mg per week</div>
+    <div class="bullet"><b>Tirzepatide:</b> Starting dose: 2.5mg per week / Max dose: 15mg per week</div>
+    <div class="bullet">Customers: Wellness, Med Spas, Family and Internal Medicine, etc.</div>
   </div>
-
-  <div class="section-rule"><div class="section-rule-text">Greenlist Supplier — Your Sales Talking Point</div><div class="section-rule-line"></div></div>
-  <div class="highlight-box">
-    <strong>Use this in conversations:</strong> "We source exclusively from FDA Greenlist suppliers. Many pharmacies don't — when the FDA starts enforcing this more strictly, that will be a significant problem for them and their providers."
-  </div>
+  <div class="highlight-box">Semaglutide and tirzepatide are peptides. We keep them separate from the peptides section because these two products are currently the biggest moving products we make.</div>
 </div>
 
-<!-- S2: TRT -->
+<!-- S2 TRT -->
 <div id="s2-trt" class="section">
   <div class="chapter-opener">
-    <div class="chapter-num">Chapter 09 — Session 2</div>
-    <div class="chapter-title">Core Products: TRT / HRT / Anabolics</div>
-    <div class="chapter-sub">Controlled substances — know the compliance requirements</div>
+    <div class="chapter-num">Session 2 — Core Products</div>
+    <div class="chapter-title">TRT / HRT / Anabolics</div>
+    <div class="chapter-sub">Full formulary — controlled substance compliance required</div>
   </div>
 
   <div class="warn-card">
-    <div class="warn-label">⚠ Controlled Substances</div>
-    <p>DEA license required on file for every prescribing provider. Wet signature or 2FA/physical token for EPCS compliance. Verbal orders possible but not preferred — disruptive to operations long-term.</p>
+    <div class="warn-label">⚠ Important — Controlled Substances</div>
+    <p>This class of drugs are controlled substances. It requires us to have the provider's DEA license on file. It also requires a wet signature or some form of electronic verification via 2FA or a physical token issued to the provider in order for us to be compliant. We can also compliantly accept a "verbal" from the provider, but not something we want to do long term because it is disruptive to operations.</p>
   </div>
 
-  <div class="section-rule"><div class="section-rule-text">Products — in Excel Order</div><div class="section-rule-line"></div></div>
+  <div class="section-rule"><div class="section-rule-text">Testosterone Cypionate — Overview</div><div class="section-rule-line"></div></div>
+  <div class="card"><p>Patient range is younger adults to older aged men. Low dose testosterone is also becoming increasingly more prescribed to women. Testosterone is compounded in an oil base, usually of <b>cottonseed oil, grape seed oil, or more often now MCT oil.</b> Cottonseed has been around the longest but causes the injection site reactions — it is also the most viscous, so takes longer to draw up and you have to dose IM. Grape seed and MCT are less viscous so you dose with a much smaller syringe SubQ or shallow IM.</p></div>
+
+  <div class="section-rule"><div class="section-rule-text">Formulations</div><div class="section-rule-line"></div></div>
   <div class="product-grid">
-    <div class="product-cell"><div class="product-name">Testosterone Cypionate (Men)</div><div class="product-form">200mg/ml · 5ml & 10ml vials · GSO or MCT oil · IM or SubQ · Wellness · Urology · Men's Health</div><div class="product-body">Most common TRT for men. Dosed 3x/week most commonly. GSO is standard; MCT gaining popularity — less inflammatory. Low Clinic Bill margins. Patient Pay at Urology/OBGYN = best margins. Don't go too low to win the business.</div></div>
-    <div class="product-cell"><div class="product-name">Testosterone Cypionate (Women)</div><div class="product-form">20mg/ml · 5ml vials · SubQ · Wellness · OBGYN · Women's Health</div><div class="product-body">Low-dose TRT for women is increasingly common. SubQ with small insulin needle. Increasingly prescribed for libido and energy. Patient Pay accounts offer the best margins.</div></div>
-    <div class="product-cell"><div class="product-name">Cyp/Prop Blend</div><div class="product-form">160mg/40mg/ml · Injectable · Specialty Wellness</div><div class="product-body">Less common but clinics that use it do high volume. Proprionate has fastest half-life, reducing energy dips between injections.</div></div>
-    <div class="product-cell"><div class="product-name">Enanthate</div><div class="product-form">Medium half-life · Specialty Wellness</div><div class="product-body">Not in current plan due to low demand, but some clinics ask. If a clinic does good volume on enanthate, bring it to leadership for a formulary conversation.</div></div>
-    <div class="product-cell"><div class="product-name">Nandrolone Decanoate</div><div class="product-form">200mg/ml · 10ml vials · Anabolic · Wellness · Urology</div><div class="product-body">Prescribed for bodybuilders or patients with severe low muscle mass. Commercially "Deca." Not common but a good offering to have.</div></div>
-    <div class="product-cell"><div class="product-name">Stanozolol</div><div class="product-form">25mg & 50mg capsules · Oral anabolic · Wellness · Urology · Men's Health</div><div class="product-body">Oral anabolic for the bodybuilding crowd. Commercially "Winstrol." Won't be requested often. Don't lead with it — have it available when a clinic asks.</div></div>
-    <div class="product-cell"><div class="product-name">Oxandrolone (Troche)</div><div class="product-form">20mg & 50mg sublingual · Wellness · Urology</div><div class="product-body">Commercially "Anavar." Troche form bypasses liver metabolism. Scored to quarter for flexible dosing. Growing use in low doses for body composition.</div></div>
-    <div class="product-cell"><div class="product-name">Testosterone Cream</div><div class="product-form">Multiple strengths · Topiclick applicator · Wellness · OBGYN</div><div class="product-body">Topical TRT. Less effective than injectable but achieves reasonable levels. 4 clicks = 1 full dose. Caution: skin transfer to children.</div></div>
-    <div class="product-cell"><div class="product-name">Enclomiphene</div><div class="product-form">12.5mg, 25mg, 50mg capsules · NOT a controlled substance · Men's Health · Wellness · Urology</div><div class="product-body">TRT alternative preserving fertility and testicular function. SERM — drives natural testosterone production. Gets most men to 750–900 ng/dL. No commercial equivalent. Growing fast.</div></div>
-    <div class="product-cell"><div class="product-name">Progesterone</div><div class="product-form">50mg, 75mg, 100mg, 150mg SR capsules · HRT · OBGYN · Wellness · Women's Health</div><div class="product-body">Peri/menopausal symptoms, amenorrhea, endometrial protection. Natural micronized has improved safety profiles for sleep and mood. Recurring script — a strong account anchor product.</div></div>
-    <div class="product-cell" style="grid-column:span 2"><div class="product-name">Thyroid (T3/T4)</div><div class="product-form">Capsules · Porcine or plant-derived · Functional Medicine · Wellness</div><div class="product-body">Compounded T3/T4 for hypothyroidism. Commercial alternative is Armour Thyroid (porcine). We also offer a plant-derived formulation with tailored T3/T4 ratios — this customization is the key value over commercial options.</div></div>
-  </div>
-
-  <div class="section-rule"><div class="section-rule-text">Key Formulation & Margin Notes</div><div class="section-rule-line"></div></div>
-  <div class="kv-table">
-    <div class="kv-row"><div class="kv-key">Oil Base (GSO vs MCT)</div><div class="kv-val">We start with GSO (grape seed oil). MCT is gaining popularity — less inflammatory, better bioavailability, but currently more expensive. May add MCT as an option or switch if cost comes down.</div></div>
-    <div class="kv-row"><div class="kv-key">Testosterone Margins</div><div class="kv-val">Steady, high-volume business but labor-intensive with low Clinic Bill margins. Don't go too low on pricing. Patient Pay at Urology/OBGYN is the sweet spot for margin.</div></div>
-    <div class="kv-row"><div class="kv-key">Enanthate Note</div><div class="kv-val">Not in initial formulary due to low demand. Medium half-life. Bring to leadership if a clinic requests it with meaningful volume.</div></div>
+    <div class="product-cell">
+      <div class="product-name">Testosterone Cypionate (Men)</div>
+      <div class="product-form">200mg/ml · 5ml and 10ml vials · IM or shallow IM</div>
+      <div class="product-body">Most commonly seen for TRT for men. Dosed anywhere from once weekly to daily, but 3x a week is most common. Usually IM or shallow IM.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">GSO &amp; MCT Oil Base</div>
+      <div class="product-form">Formulation note</div>
+      <div class="product-body">We will be making our testosterone in GSO or MCT. MCT is gaining popularity but is more expensive currently. Evidence points to it being superior to GSO as it is less inflammatory. We will start with GSO but may add an option for MCT or switch completely if we can source it at close to the same cost.</div>
+    </div>
+    <div class="product-cell span-2">
+      <div class="product-name">Testosterone Margins</div>
+      <div class="product-form">Important pricing note</div>
+      <div class="product-body">Testosterone is one of the most commonly prescribed sterile products we make. It is steady business but the margins can be very low with clinic bill accounts. It is also very labor intensive to make. We want to sell it because it helps diversify us but we don't want to go too low on pricing to get the business. Patient Pay clinics like Urology, OBGYN, etc. is usually best for this product because we can actually make a decent margin. They also prescribe a lot of it.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Testosterone Cypionate / Propionate Blend</div>
+      <div class="product-form">160mg/40mg/ml</div>
+      <div class="product-body">A less commonly used formulation for TRT, but clinics that use this typically do a lot of it. The propionate acts instantly and keeps levels high in between injections so the patient doesn't experience a dip in energy. The downside is propionate has a higher rate of injection site reactions, but at a smaller dose you don't see it as much.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Enanthate</div>
+      <div class="product-form">Medium half-life</div>
+      <div class="product-body">You may come across clinics that like to use enanthate. As of right now we don't plan on making it due to it not being common, but if a clinic does good volume let's have a conversation and see if it makes sense to add to the formulary.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Nandrolone Decanoate</div>
+      <div class="product-form">200mg/ml · 10ml vials · "Deca-Durabolin" · Wellness · Urology</div>
+      <div class="product-body">An anabolic steroid typically prescribed for bodybuilders or patients with an underlying condition causing extremely low muscle mass. Not super commonly prescribed but some clinics see a lot of bodybuilders so it is a good offering to have.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Stanozolol</div>
+      <div class="product-form">25mg and 50mg capsules · "Winstrol" · Wellness · Urology · Men's Health</div>
+      <div class="product-body">Another anabolic steroid prescribed less often. An oral capsule offering. You won't see this requested often, but it is an offering for the bodybuilder crowd.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Oxandrolone (Troche)</div>
+      <div class="product-form">20mg and 50mg · "Anavar" / "Oxandrin"</div>
+      <div class="product-body">An oral sublingual anabolic. Another one for the bodybuilding crowd but there are more providers using it in a low dose. Some providers prefer it in troche form because it is thought to bypass being metabolized in the liver. Troches have 2 score lines to quarter the troche, so it works for patients taking a full dose or low dose.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Testosterone Cream</div>
+      <div class="product-form">Multiple strengths · Topiclick applicator · "Androgel"</div>
+      <div class="product-body">Topical TRT. Has been around a long time. Does not work as well as injectable but can get patients to a reasonable testosterone level with decent clinical outcomes. Not a great option for someone with children because the cream can transfer with skin-to-skin contact. Each click gives 1/4 dose of the strength.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Enclomiphene</div>
+      <div class="product-form">12.5mg, 25mg, 50mg capsules · NOT a controlled substance</div>
+      <div class="product-body">An isomer of clomiphene that has become very popular over the last few years. No commercially available product. Used as an alternative to TRT to treat secondary hypogonadism. Superior to clomiphene citrate because it does not increase estradiol. A SERM — works by blocking estrogen receptors in the brain to increase FSH and LH, which signal the testes to increase sperm and testosterone production. Great alternative for men wanting to preserve fertility and testicular function. Can get most men to overall testosterone levels of 750–900 while maintaining a natural estrogen balance.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Progesterone</div>
+      <div class="product-form">50mg, 75mg, 100mg, 150mg SR capsules · HRT · Wellness · OBGYN · Women's Health</div>
+      <div class="product-body">An HRT product primarily prescribed to women. Used to treat perimenopausal/menopausal symptoms (hot flashes, insomnia), amenorrhea, and to protect the uterus from endometrial thickening when taking estrogen therapy. Natural micronized progesterone offers improved safety profiles for sleep and mood.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Thyroid (T3/T4)</div>
+      <div class="product-form">Capsules · Porcine or plant-derived · "Armour Thyroid"</div>
+      <div class="product-body">Commercial product is Armour Thyroid — derived from desiccated porcine thyroid. Combination of T3 and T4. T4 has a longer half-life for more consistent levels; T3 is faster acting. Most commonly prescribed for hypothyroidism. We will also offer a T3/T4 formulation that is plant-derived and can be tailored to better match the amount of T3/T4 the provider wants.</div>
+    </div>
   </div>
 </div>
 
-<!-- S2: SEXUAL HEALTH -->
+<!-- S2 SEXUAL HEALTH -->
 <div id="s2-sexual" class="section">
   <div class="chapter-opener">
-    <div class="chapter-num">Chapter 10 — Session 2</div>
-    <div class="chapter-title">Core Products: Sexual Health & Vitamins</div>
-    <div class="chapter-sub">High co-prescription frequency — easy add-ons to any account</div>
+    <div class="chapter-num">Session 2 — Core Products</div>
+    <div class="chapter-title">Sexual Health / ED</div>
+    <div class="chapter-sub">Tadalafil · Sildenafil · Trimix · Super Trimix · Quad Mix · Scream Cream</div>
   </div>
 
-  <div class="section-rule"><div class="section-rule-text">Sexual Health / ED — in Excel Order</div><div class="section-rule-line"></div></div>
   <div class="product-grid">
-    <div class="product-cell"><div class="product-name">Tadalafil</div><div class="product-form">6mg, 12mg, 24mg · Mint chewable tablets or capsules · Urology · Wellness · Men's Health</div><div class="product-body">Daily or as-needed use. 36hr half-life. Low-dose daily has cardiovascular benefits and helps prevent atherosclerosis. Lower margins but easy to make and co-prescribed with nearly everything we sell.</div></div>
-    <div class="product-cell"><div class="product-name">Sildenafil</div><div class="product-form">50mg, 100mg SR capsules & troches · Urology · Wellness</div><div class="product-body">As-needed use, 4–6hr duration. Troches act faster. Avoid nitrates. Max once daily. Low priapism risk. Troche vs capsule speed is a clinical differentiation to know.</div></div>
-    <div class="product-cell"><div class="product-name">Trimix</div><div class="product-form">Sterile injectable · Urology primary · Cold chain</div><div class="product-body">Injected directly into corpus cavernosum. Must be refrigerated. Active ingredients: Alprostadil (dilates vessels), Papaverine (vasodilator), Phentolamine (blocks vasoconstriction). For older patients or trauma cases.</div></div>
-    <div class="product-cell"><div class="product-name">Super Trimix</div><div class="product-form">Sterile injectable · Urology · Cold chain</div><div class="product-body">Variation of Trimix with twice the amount of Phentolamine. For patients who need a stronger response than standard Trimix provides.</div></div>
-    <div class="product-cell"><div class="product-name">Quad Mix</div><div class="product-form">Sterile injectable · Urology — severe cases only</div><div class="product-body">Stronger than Trimix with a fourth ingredient: Atropine (inhibits nerve impulses responsible for smooth muscle contraction). For very severe ED. NOT starting on the formulary — but we can make it if a clinic requests it. Super Quad Mix also exists.</div></div>
-    <div class="product-cell"><div class="product-name">Scream Cream</div><div class="product-form">Topical cream/gel · Urology · Wellness</div><div class="product-body">Female arousal — increases blood flow to the clitoris. Sildenafil + low-dose Testosterone. Demand has softened as newer peptides offer similar or better outcomes. Carry it; don't lead with it.</div></div>
+    <div class="product-cell">
+      <div class="product-name">Tadalafil</div>
+      <div class="product-form">6mg, 12mg, 24mg · Mint chewable tablets and/or capsules · "Cialis" (Lilly)</div>
+      <div class="product-body">PDE5 inhibitor to treat ED. Can be taken daily or higher dose as needed. 36-hour half-life. Low-dose daily has cardiovascular benefits and helps prevent atherosclerosis. Most clinics prescribe this. Lower margins, but easy to make and often prescribed with other products we make.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Sildenafil</div>
+      <div class="product-form">50mg, 100mg SR capsules and Troches · "Viagra" (Pfizer)</div>
+      <div class="product-body">PDE5 inhibitor to treat ED. Taken as needed before sexual activity, usually lasts 4–6 hours. Patient must avoid nitrates and not take more than once daily. Priapism is low risk — typically only occurs when mixing medications or taking more than prescribed. Troches work a little faster, which is the benefit of troche vs capsule.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Trimix</div>
+      <div class="product-form">Sterile injectable · Urology · Refrigerated — cold chain</div>
+      <div class="product-body">Typically used in older patients or those with trauma requiring a stronger medication. Injected directly into the corpus cavernosum. Must be refrigerated. Active ingredients: <b>Alprostadil</b> (dilates blood vessels, relaxes smooth muscle), <b>Papaverine</b> (vasodilator), <b>Phentolamine</b> (blocks epinephrine and norepinephrine to prevent vasoconstriction).</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Super Trimix</div>
+      <div class="product-form">Sterile injectable · Urology · Refrigerated — cold chain</div>
+      <div class="product-body">Another variation of Trimix that has twice the amount of Phentolamine.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Quad Mix</div>
+      <div class="product-form">Sterile injectable · Urology — severe cases · Also: Super Quad Mix</div>
+      <div class="product-body">Stronger version of Trimix with a fourth active ingredient: <b>Atropine</b> — inhibits nerve impulses responsible for smooth muscle contraction. Typically given for very severe cases of ED. There is also a Super Quad Mix. We will not start with this on the formulary but can make it if we see a need for it.</div>
+    </div>
+    <div class="product-cell">
+      <div class="product-name">Scream Cream</div>
+      <div class="product-form">Compounded topical cream/gel · Urology · Wellness</div>
+      <div class="product-body">Used for female arousal to increase blood flow to the clitoris. Main active ingredients are sildenafil and sometimes low-dose testosterone. This used to be popular but I'm not sure what the demand is anymore. Some urology and wellness clinics still prescribe it, but there are newer peptides that offer the same or better clinical outcomes.</div>
+    </div>
   </div>
-
-  <div class="gold-rule"></div>
-  <div class="section-rule"><div class="section-rule-text">Vitamins & Aminos — in Excel Order</div><div class="section-rule-line"></div></div>
-  <div class="product-grid">
-    <div class="product-cell"><div class="product-name">B12</div><div class="product-form">Injectable · Wellness · Weight Loss · IV Therapy</div><div class="product-body">Two types: Methylcobalamin (active form, better absorbed) and Cyanocobalamin (more stable, less expensive). Common add-on across nearly all wellness accounts.</div></div>
-    <div class="product-cell"><div class="product-name">Lipo B</div><div class="product-form">Injectable · Wellness · Weight Loss</div><div class="product-body">Lipotropic injection. MIC/B12 (Methionine, Inositol, Choline). Boosts metabolism, increases energy, helps liver process and eliminate dietary and stored fats.</div></div>
-    <div class="product-cell"><div class="product-name">Lipo C</div><div class="product-form">Injectable · Wellness · Weight Loss</div><div class="product-body">Lipotropic injection. MIC/B12 or B6/L-Carnitine. Supports weight loss, boosts metabolism, increases daily energy. Often paired with GLP programs.</div></div>
-    <div class="product-cell"><div class="product-name">Glutathione</div><div class="product-form">Injectable · Wellness · Longevity</div><div class="product-body">Very strong antioxidant. Popular in longevity clinics and bodybuilding communities. Good add-on for wellness accounts already buying GLPs or TRT.</div></div>
-    <div class="product-cell" style="grid-column:span 2"><div class="product-name">L-Carnitine</div><div class="product-form">Injectable · Wellness · Performance</div><div class="product-body">Aids faster metabolism and improved exercise performance. Popular in wellness and performance-focused clinics. Often co-prescribed with weight loss programs.</div></div>
-  </div>
-
-  <div class="highlight-box"><strong>Loss leaders:</strong> These products are lower margin. We carry them for account retention and to make Embark a one-stop shop — not as primary revenue drivers.</div>
 </div>
 
-<!-- S2: PEPTIDES -->
+<!-- S2 VITAMINS -->
+<div id="s2-vitamins" class="section">
+  <div class="chapter-opener">
+    <div class="chapter-num">Session 2 — Core Products</div>
+    <div class="chapter-title">Vitamins &amp; Aminos</div>
+    <div class="chapter-sub">Loss leaders — we offer them, but are not actively pushing them</div>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-cell"><div class="product-name">B12</div><div class="product-form">Injectable</div><div class="product-body">Two types of B12: Methylcobalamin and Cyanocobalamin.</div></div>
+    <div class="product-cell"><div class="product-name">Lipo B</div><div class="product-form">Injectable · MIC/B12 (methionine, inositol, choline)</div><div class="product-body">Lipotropic injection used to boost metabolism, increase energy, and help the liver process and eliminate dietary and stored fats.</div></div>
+    <div class="product-cell"><div class="product-name">Lipo C</div><div class="product-form">Injectable · MIC/B12 or B6/L-Carnitine</div><div class="product-body">Lipotropic injection used to boost metabolism, support weight loss, and increase daily energy levels.</div></div>
+    <div class="product-cell"><div class="product-name">Glutathione</div><div class="product-form">Injectable · Wellness · Longevity</div><div class="product-body">Very strong antioxidant. Popular in wellness clinics that focus on longevity and bodybuilding communities.</div></div>
+    <div class="product-cell span-2"><div class="product-name">L-Carnitine</div><div class="product-form">Injectable · Wellness · Performance</div><div class="product-body">Aids with faster metabolism and improved exercise performance. Can be popular in wellness clinics and bodybuilding-focused clinics.</div></div>
+  </div>
+  <div class="highlight-box">These products are lower margin and are <strong>loss leaders.</strong> We offer them but are not actively pushing them. Glutathione and L-Carnitine can be popular in wellness clinics.</div>
+</div>
+
+<!-- S2 PEPTIDES -->
 <div id="s2-peptides" class="section">
   <div class="chapter-opener">
-    <div class="chapter-num">Chapters 11 & 12 — Session 2</div>
-    <div class="chapter-title">Peptides: Market & Full Formulary</div>
-    <div class="chapter-sub">The fastest-growing category — 17 products in Excel order</div>
+    <div class="chapter-num">Session 2 — Core Products</div>
+    <div class="chapter-title">Peptides</div>
+    <div class="chapter-sub">Current market overview &amp; full formulary — 17 products</div>
   </div>
 
-  <div class="section-rule"><div class="section-rule-text">How We Got Here</div><div class="section-rule-line"></div></div>
+  <div class="section-rule"><div class="section-rule-text">Current Peptide Market</div><div class="section-rule-line"></div></div>
   <div class="timeline">
-    <div class="timeline-row"><div class="timeline-yr">2 Years Ago</div><div class="timeline-body">503A compounding pharmacies were the primary legal source of peptides. Regulated, quality-controlled, with proper clinical oversight.</div></div>
-    <div class="timeline-row"><div class="timeline-yr">Late 2023</div><div class="timeline-body">FDA placed 19 popular peptides on the "Category 2" list. 503A pharmacies legally prohibited from compounding them. Pharmacies still making them face extreme fines and potential shutdown if audited.</div></div>
-    <div class="timeline-row"><div class="timeline-yr" style="color:#e8a0a0">Today</div><div class="timeline-body" style="color:var(--red)">Black market has exploded. Research-only peptides imported from China — essentially unregulated supplements. 4 out of 5 peptides consumed today are from the black market. Patients do not know what they are injecting.</div></div>
-    <div class="timeline-row"><div class="timeline-yr" style="color:var(--gold)">July 2026 + 2027</div><div class="timeline-body">RFK Jr. is pushing to reverse this for 14 peptides. FDA review panels start July 2026, then early 2027. Significant growth opportunity for compliant 503A pharmacies positioned to move quickly.</div></div>
+    <div class="timeline-row"><div class="timeline-yr">2 Years Ago</div><div class="timeline-body">Peptides were mainly made by 503A compounding pharmacies.</div></div>
+    <div class="timeline-row"><div class="timeline-yr">Late 2023</div><div class="timeline-body">FDA put 19 of the most popular peptides on the "Category 2" list and pharmacies have not been legally allowed to compound them since. Some pharmacies are still doing it but if they were to get audited by the FDA they would face extremely punishing fines and possibly being shut down.</div></div>
+    <div class="timeline-row"><div class="timeline-yr" style="color:#e8a0a0">Today</div><div class="timeline-body" style="color:var(--red)">This ruling created a black market for "Research Only" peptides. These peptides are typically being imported from China premade and are basically under the same jurisdiction as supplements — meaning the customer does not know what they are actually injecting.</div></div>
+    <div class="timeline-row"><div class="timeline-yr" style="color:var(--gold)">July 2026 &amp; Early 2027</div><div class="timeline-body">RFK Jr. is a big proponent for peptides and is looking to reverse this decision for 14 of these peptides. They will be reviewed in July 2026 and at the beginning of 2027 to remove them from Category 2 and allow 503A compounding pharmacies to make them again. They have realized how much the black market has grown and want to have regulations and quality standards for patients that want to use them.</div></div>
   </div>
-
-  <div class="highlight-box"><strong>Our compliance positioning is a real differentiator.</strong> Competitors making Category 2 peptides are exposing their providers to regulatory risk. Use this in conversations — but educate, don't alarm. Frame it as protecting the provider's practice.</div>
 
   <div class="gold-rule"></div>
-  <div class="section-rule"><div class="section-rule-text">Current Formulary — All 17 Products in Excel Order</div><div class="section-rule-line"></div></div>
+  <div class="section-rule"><div class="section-rule-text">Full Formulary — in Excel Order</div><div class="section-rule-line"></div></div>
 
-  <div class="product-grid">
-    <div class="product-cell"><div class="product-name">PT-141 Nasal Spray</div><div class="product-form">Nasal spray · Urology · Wellness</div><div class="product-body">Bremelanotide. Stimulates sexual desire via CNS — not just blood flow. Activates melanocortin receptors in the brain. Works for both men and women. 1–2 sprays per nostril 45–60 min before activity.</div></div>
-    <div class="product-cell"><div class="product-name">NAD+</div><div class="product-form">Injectable · Longevity · Wellness</div><div class="product-body">Not technically a peptide but grouped here — co-prescribed with peptides. Essential coenzyme for energy (ATP), DNA repair, cell signaling. Natural decline with age makes supplementation popular in longevity clinics.</div></div>
-    <div class="product-cell"><div class="product-name">AOD 9604 (Troche)</div><div class="product-form">Sublingual troche · Weight Loss · Wellness</div><div class="product-body">Modified peptide fragment of HGH. Targets visceral and abdominal fat. Sublingual absorption bypasses digestion and liver metabolism. Injectable form is Category 2 — troche form is currently compoundable.</div></div>
-    <div class="product-cell"><div class="product-name">BPC-157 (Injectable)</div><div class="product-form">Injectable · Ortho · Wellness · Sports Med</div><div class="product-body">One of the most popular peptides. Soft-tissue regeneration: tendon/ligament healing, muscle repair, gut health support. Promotes angiogenesis, reduces inflammation. Strong Ortho market opportunity.</div></div>
-    <div class="product-cell"><div class="product-name">BPC-157 (Capsules)</div><div class="product-form">Oral capsules · GI · Wellness</div><div class="product-body">Same compound, different delivery. Capsules primarily for gut health — IBS, IBD, mucosal repair. Know the distinction: injectable for soft tissue, capsules for gut problems. Providers will ask.</div></div>
-    <div class="product-cell"><div class="product-name">TB-500</div><div class="product-form">Injectable · Ortho · Wellness · Sports Med</div><div class="product-body">Thymosin Beta-4. Accelerates injury healing — enhances cell migration, promotes angiogenesis, increases actin expression. Note: Thymosin Alpha-1 exists (immune function) — won't make initially but may add later.</div></div>
-    <div class="product-cell"><div class="product-name">BPC-157 / TB-500 Combo</div><div class="product-form">Injectable · Ortho · Wellness</div><div class="product-body">One of the most popular peptide combinations. Synergistic — both reduce inflammation and promote healing and angiogenesis. Strong target for orthopedic, sports medicine, and active-lifestyle wellness accounts.</div></div>
-    <div class="product-cell"><div class="product-name">GHK-Cu (Injectable)</div><div class="product-form">Injectable · Anti-Aging · Wellness · Derm</div><div class="product-body">Tripeptide that binds copper. Promotes tissue repair, collagen production, cellular regeneration. Levels plummet by more than half between age 20 and 60. Products have a blue or bluish tint due to the copper.</div></div>
-    <div class="product-cell"><div class="product-name">GHK-Cu / Epithalon Blend</div><div class="product-form">Injectable · Anti-Aging · Longevity</div><div class="product-body">GHK-Cu (tissue repair, collagen, gene reprogramming) + Epithalon (stimulates telomerase to extend telomeres, supports cellular longevity, regulates circadian rhythms via pineal gland). Popular "fountain of youth" formula.</div></div>
-    <div class="product-cell"><div class="product-name">Dihexa (Capsules)</div><div class="product-form">Oral · Cognitive Health · Neurology</div><div class="product-body">Investigational nootropic for cognitive decline. "The limitless pill." Angiotensin IV analog binding HGF receptors — promotes neuroplasticity and new synaptic connections. Growing with peptide awareness.</div></div>
-    <div class="product-cell"><div class="product-name">Melanotan II</div><div class="product-form">Injectable · Wellness · Urology</div><div class="product-body">Mimics alpha-MSH. Stimulates melanin production (skin tanning with minimal UV). Also acts on CNS (MC4 receptors) — triggers sexual desire and spontaneous erections. Up for Category 2 review July 2026; outcome uncertain.</div></div>
-    <div class="product-cell"><div class="product-name">MOTS-C</div><div class="product-form">Injectable · Longevity · Performance</div><div class="product-body">Mitochondrial peptide encoded by mitochondrial DNA. Regulates metabolism, promotes physical performance, improves insulin sensitivity. Inhibits folate cycle, activating AMPK. Best for longevity-focused clinics.</div></div>
-    <div class="product-cell"><div class="product-name">IGF-1 LR3</div><div class="product-form">Injectable · Muscle · Recovery · Wellness</div><div class="product-body">Modified IGF-1 analog with 20–30hr half-life. Promotes muscle hyperplasia and nutrient partitioning into muscle. Safer HGH alternative. Note: theoretical risk of accelerating existing tumor growth — providers should screen patients.</div></div>
-    <div class="product-cell"><div class="product-name">Sermorelin</div><div class="product-form">Injectable · Anti-Aging · Wellness · Weight Management</div><div class="product-body">Synthetic GHRH mimic. Stimulates the pituitary to naturally produce and release HGH. Commonly prescribed. Used for energy, sleep quality, and body composition. Off-label use widespread in anti-aging clinics.</div></div>
-    <div class="product-cell"><div class="product-name">Sermorelin / Ipamorelin Blend</div><div class="product-form">Injectable · Anti-Aging · Wellness</div><div class="product-body">One of the most popular peptide combinations. Sermorelin acts upstream (GHRH mimic). Ipamorelin acts downstream as a selective GH secretagogue — mimics ghrelin, fine-tunes HGH release without spiking cortisol, prolactin, or hunger.</div></div>
-    <div class="product-cell"><div class="product-name">GHK-Cu Spray Foam — Hair Restoration</div><div class="product-form">Topical spray foam · Dermatology · Aesthetics · Hair</div><div class="product-body">GHK-Cu as the active ingredient in a spray foam format. Formulation currently in development with a consultant. Large existing market. Strengthens follicles, minimizes shedding, encourages thicker growth.</div></div>
-    <div class="product-cell"><div class="product-name">GHK-Cu Topical Cream — Dermatology</div><div class="product-form">Topical cream · Dermatology · Aesthetics · Anti-Aging</div><div class="product-body">GHK-Cu for skin. Reduces fine lines, increases firmness, improves elasticity by stimulating collagen and elastin. Formulation in development. Large existing market in aesthetics and dermatology accounts.</div></div>
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">PT-141 Nasal Spray</div><div class="product-form">Nasal spray · Urology · Wellness</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>PT-141 (Bremelanotide) nasal spray is an off-label, compounded peptide used to treat low libido and sexual dysfunction in both men and women. It works directly on the central nervous system to stimulate sexual desire in the brain, rather than just increasing blood flow.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Unlike traditional ED medications (like Viagra/Cialis), PT-141 activates melanocortin receptors in the brain. By stimulating these neurochemical pathways, it boosts sexual motivation and arousal, and can also facilitate erectile responses in men.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>Delivered as a nasal spray. Typically one to two sprays per nostril 45–60 minutes before desired sexual activity.</p></div>
+    </div>
   </div>
-</div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">NAD+ (Injectable)</div><div class="product-form">Injectable · Longevity · Wellness</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>NAD+ (nicotinamide adenine dinucleotide) is a vital coenzyme found in all living cells, essential for energy production, DNA repair, and cell signaling. Because NAD+ levels naturally decline with age, boosting them has become popular for promoting cellular health and longevity.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Energy Production: NAD shuttles electrons between molecules in the mitochondria to convert nutrients into cellular energy (ATP). Cellular Repair: NAD+ serves as necessary fuel for specific longevity proteins such as sirtuins and PARPs. Sirtuins help regulate metabolic health and inflammation, while PARPs seek out and repair damaged DNA.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>NAD+ is technically not a peptide but it is grouped with the peptides because it is commonly prescribed with other peptides.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">AOD 9604 (Troche)</div><div class="product-form">Sublingual troche · Weight Loss · Wellness</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>AOD 9604 troche is a sublingual lozenge containing AOD 9604, a modified peptide fragment of human growth hormone. It is designed to target stubborn fat metabolism and promote weight loss.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Acts on metabolic pathways to stimulate fat breakdown and limit fat storage. The troche advantage: dissolving under the tongue allows the peptide to absorb directly into the bloodstream, bypassing the digestive tract and liver and avoiding the need for daily injections.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>Also available as an injectable. Currently not approved to compound as it is on the FDA's Category 2 list in injectable form. AOD targets the largest adipocytes in the body, which is typically visceral and abdominal fat.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">BPC-157 (Injectable)</div><div class="product-form">Injectable · Ortho · Wellness · Sports Med</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>Primarily used for soft-tissue regeneration, including tendon/ligament healing, muscle regeneration, and potential gut health support.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Promotes angiogenesis — especially important for healing tendons and ligaments which have poor blood supply. Increases growth hormone receptors on tendon fibroblasts, making tissue more responsive to natural growth factors. Reduces pro-inflammatory cytokines. Originally studied for ulcers — helps strengthen and repair the mucosal lining of the gut and supports nerve regeneration.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>One of the most popular peptides. Ortho may have strong interest in this peptide.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">BPC-157 (Capsules)</div><div class="product-form">Oral capsules · GI · Wellness</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>Body Protective Compound 157. Supports gastrointestinal health, tissue repair, and inflammation management.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Reduces pro-inflammatory cytokines and modulates nitric oxide pathways to reduce pain, swelling, and inflammation. Helps strengthen and repair the mucosal lining of the gut and supports nerve regeneration.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>Most commonly prescribed for patients with IBS or IBD. From experience with providers, injectable is typically used for soft tissue injuries and inflammation. Capsules are typically prescribed for patients with gut health problems.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">TB-500 (Injectable)</div><div class="product-form">Injectable · Ortho · Wellness · Sports Med</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>Thymosin Beta-4. Primarily used to accelerate injury healing, reduce inflammation, and enhance tissue repair in muscles, tendons, and ligaments.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Enhances cell migration to injured areas, promotes angiogenesis (new blood vessel formation), and increases actin expression, which is crucial for tissue repair.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>There is also Thymosin Alpha-1, which primarily boosts immune function. We currently won't make this but it may come available in the future.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">BPC-157 / TB-500 Combo (Injectable)</div><div class="product-form">Injectable · Ortho · Wellness</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>Combination of BPC-157 and TB-500. They work well together as they both reduce inflammation and promote healing and angiogenesis.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>See BPC-157 and TB-500 entries above.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>One of the most popular peptide combinations.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">GHK-Cu (Injectable)</div><div class="product-form">Injectable · Anti-Aging · Wellness · Dermatology</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>GHK (glycyl-L-histidyl-L-lysine) is a naturally occurring tripeptide found in human blood, saliva, and urine. In the body, it readily binds with copper to form GHK-Cu, widely known for promoting tissue repair, collagen production, and cellular regeneration.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>GHK levels are abundant in young, healthy individuals (around 200 ng/ml at age 20) but plummet by more than half by age 60. Acts as a biochemical messenger that triggers healing responses, regulates the expression of multiple genes, and helps cells revert to a healthier, younger state.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>Heavily utilized in dermatology, wellness, and anti-aging therapies. Creams and injectables are blue or have a bluish tint due to the copper. Used in anti-aging topicals to reduce fine lines, increase firmness, and improve elasticity by stimulating collagen and elastin synthesis. Also used in scalp treatments to strengthen hair follicles, minimize shedding, and encourage thicker hair growth. Promotes repair of skin, connective tissue, and blood vessels — used topically for decreased scarring.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">GHK-Cu / Epithalon (Injectable)</div><div class="product-form">Injectable · Anti-Aging · Longevity · "Fountain of Youth" formula</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>A popular peptide therapy that combines tissue repair with cellular longevity. Pairs the cosmetic and structural benefits of copper peptides with the DNA-level repair of Epithalon.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>GHK-Cu — Tissue Regeneration: stimulates skin cells to significantly increase collagen and elastin production. Gene Reprogramming: can influence the expression of over 4,000 genes, reverting aged cells to a healthier state. Anti-Inflammation: limits excess collagen breakdown and calms inflammatory pathways. Epithalon — Telomere Extension: stimulates the enzyme telomerase to extend and maintain telomeres, supporting cellular longevity. Pineal Regulation: stimulates the pineal gland to naturally synthesize melatonin, helping regulate circadian rhythms and restorative sleep.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>Epithalon (Epitalon) is a synthetic tetrapeptide that stimulates telomerase activity — the enzyme responsible for maintaining telomere length. We may offer Epithalon by itself as well.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">Dihexa (Capsules)</div><div class="product-form">Oral capsules · Cognitive Health · "The Limitless Pill"</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>An investigational, orally active oligopeptide originally developed to treat cognitive decline. Known as the "limitless pill."</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>A nootropic that promotes neuroplasticity by stimulating the formation of new synaptic connections and repairing neurons. An angiotensin IV analog that binds with high affinity to the hepatocyte growth factor (HGF). By mimicking and potentiating HGF, it activates c-Met receptors in the brain, triggering cellular pathways responsible for cognitive function and neural repair.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>This was not a huge mover a couple years ago, but with the increased popularity of peptides it will likely be more popular.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">Melanotan II (Injectable)</div><div class="product-form">Injectable · Wellness · Urology · Up for Category 2 review July 2026</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>A synthetic peptide designed to mimic the body's natural alpha-melanocyte-stimulating hormone. It stimulates melanin production to cause skin tanning with minimal UV exposure.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Originally developed in the 1980s as a potential skin cancer preventative, MT-II mimics alpha-MSH. Forces the body's melanocytes to produce higher levels of eumelanin, resulting in a dark tan even with minimal UV light.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>This one is up for approval in July but it does have some reported side effects so it may not come off the Category 2 list. Unlike standard ED medications which work locally on blood flow, Melanotan II acts on the central nervous system — a non-selective melanocortin receptor agonist (primarily targeting MC4 receptors) that triggers both increased sexual desire and spontaneous erections.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">MOTS-C (Injectable)</div><div class="product-form">Injectable · Longevity · Performance</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>A naturally occurring 16-amino acid peptide encoded directly by the mitochondrial DNA. Functions as a systemic signaling hormone that regulates cellular metabolism, promotes physical performance, and improves insulin sensitivity.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Energy Regulation: inhibits the folate cycle, which activates AMPK (AMP-activated protein kinase) — a master regulator of energy that signals cells to increase glucose uptake and fat burning. Metabolic Flexibility: targets skeletal muscle to improve metabolic homeostasis. Endogenous levels of MOTS-c increase during physical stress and exercise.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>This product is hit or miss. If a clinic specializes in longevity they will most likely order it.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">IGF-1 LR3 (Injectable)</div><div class="product-form">Injectable · Muscle · Recovery · Safer alternative to HGH</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>IGF-1 LR3 (Long Arginine 3-Insulin-like Growth Factor 1) is a synthetic, modified analog of human IGF-1. Engineered for enhanced stability with a half-life of 20–30 hours and significantly more potent than naturally occurring IGF-1. Primarily sought for muscle growth, tissue repair, and accelerated recovery.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Extended Half-Life: native IGF-1 deactivates in the body within minutes, but IGF-1 LR3's modified structure prevents binding to proteins that would otherwise neutralize it. Hyperplasia: unlike standard hypertrophy, IGF-1 LR3 can promote hyperplasia — the formation of entirely new muscle cells. Nutrient Partitioning: helps direct glucose and amino acids directly into muscle tissue, promoting lean body mass while supporting fat loss.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>Because it promotes rapid cellular growth, there are theoretical risks of accelerating the growth of existing cancerous tumors or causing organ enlargement with long-term, unregulated use.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">Sermorelin (Injectable)</div><div class="product-form">Injectable · Anti-Aging · Wellness · Weight Management</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>Prescribed "off-label" in adults. Widely used in anti-aging, wellness, and weight management clinics to improve energy, sleep, and body composition.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>A synthetic peptide that mimics Growth Hormone-Releasing Hormone (GHRH). Stimulates the pituitary gland to naturally produce and secrete human growth hormone (HGH).</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>This is a commonly prescribed peptide.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">Sermorelin / Ipamorelin (Injectable)</div><div class="product-form">Injectable · Anti-Aging · Wellness · Popular combination</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>A popular peptide therapy used in anti-aging and regenerative medicine to naturally stimulate the pituitary gland into producing and releasing HGH. This dual-action stack maximizes results in recovery, vitality, and body composition.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Sermorelin acts upstream by mimicking GHRH, which naturally signals the pituitary gland to increase HGH production. Ipamorelin acts downstream as a selective growth hormone secretagogue that mimics the hunger hormone ghrelin. It fine-tunes the release of HGH while avoiding unwanted spikes in cortisol, prolactin, or hunger that other peptides can cause.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>This is a popular and commonly prescribed peptide combination.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">GHK-Cu Spray Foam — Hair Restoration</div><div class="product-form">Topical spray foam · Dermatology · Aesthetics · Hair</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>GHK-Cu is the active ingredient. Will most likely be a spray foam of some kind. We don't have a formulation currently but will work with a consultant to come up with one that works well.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Tissue repair, collagen production, and cellular regeneration.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>There is currently a large market for this.</p></div>
+    </div>
+  </div>
+
+  <div class="peptide-card">
+    <div class="peptide-header"><div class="product-name">GHK-Cu Topical Cream — Dermatology</div><div class="product-form">Topical cream · Dermatology · Aesthetics · Anti-Aging</div></div>
+    <div class="peptide-body">
+      <div class="peptide-section"><div class="peptide-section-label">About / Clinical Benefits</div><p>GHK-Cu is the active ingredient. Will most likely be a spray foam of some kind. We don't have a formulation currently but will work with a consultant to come up with one that works well. Should help with wrinkles, skin firmness, etc.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">How It Works</div><p>Tissue repair, collagen production, and cellular regeneration.</p></div>
+      <div class="peptide-section"><div class="peptide-section-label">Additional Information</div><p>There is currently a large market for this.</p></div>
+    </div>
+  </div>
+
+</div><!-- end peptides -->
 
 </main>
 
@@ -1017,12 +798,12 @@ b { color: var(--dark); }
 </footer>
 
 <script>
-function show(id, el) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+function show(id,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   el.classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
 </body>
